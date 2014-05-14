@@ -68,7 +68,10 @@ unsigned char heartBeatCounter1;				//counts the amount of pieks during an amoun
 unsigned char heartBeatPiek2;
 unsigned char heartBeatCounter2;
 unsigned char heartBeatTimer;
-unsigned char peakBoolean;
+unsigned char peakBoolean1;
+unsigned char peakBoolean2;
+unsigned char prevPeak1;
+unsigned char prevPeak2;
 unsigned char counterHR;
 
 
@@ -80,7 +83,9 @@ void sLedOn(void);
 void centerLed(void);
 void HRGameLight(void);
 void Speaker(void);
-char HeartDetect(unsigned char);
+unsigned char HeartDetect1(void);
+unsigned char HeartDetect2(void);
+void delayms(int);
 /** D E C L A R A T I O N S **************************************************/
 /******************************************************************************
  * Function:        void main(void)
@@ -113,8 +118,9 @@ void main(void) {
        sLedOn();
 }
 
- //HeartBeat
+//HeartBeat
 	if(buttonCounter%3 == 1){
+	//
 	   if( GameButton == 0){	   // not that good, maybe need to detect rising edge
         // the first four leds blink to show it's HR game and sLed Off
 		if(counterBlink1 == 0) {			
@@ -135,7 +141,7 @@ void main(void) {
 		}
         Wait();	
       }
-  //push GameButton to start HR game
+	//push GameButton to start HR game
        if(GameButton == 1){    // not that good
 		   // all Leds off
 			LedInit();
@@ -168,41 +174,45 @@ void main(void) {
 			        // some congradulations
 			}
           else{
-			heartBeatCounter1 = HeartDetect(1);
-			heartBeatCounter2 = HeartDetect(2);
-			if(heartBeatCounter1 > heartBeatCounter2){ // we define "1"is right side; "2"is left side;
-				//stepper motor moves one step right
-                
+			if( HeartDetect1() == 1 )
+			{heartBeatCounter1++;}
 
-				//led moves one step right
-			           	LATBbits.LATB6 = 0;
-    					Wait();		
-  						  for(j=0;j<8;j++)
-	                    	{LATBbits.LATB4 = 0;
-	                    	LATBbits.LATB5 = data[t][j];
-			                LATBbits.LATB4 = 1; 
-	                     	}	
-		                    LATBbits.LATB6 = 1;	
-						t--;
-               }
-			else if (heartBeatCounter1 < heartBeatCounter2){
-				//stepper motor moves one step left
+			if( HeartDetect2() == 1 )
+			{heartBeatCounter2++;}
 
-
-				//led moves one step left
-                        LATBbits.LATB6 = 0;
-    			    	Wait();		
-  						  for(j=0;j<8;j++)
-	                    	{LATBbits.LATB4 = 0;
-	                    	LATBbits.LATB5 = data[s][j];
-			                LATBbits.LATB4 = 1; 
-	                     	}	
-		                    LATBbits.LATB6 = 1;
-						s++;
-			    }
-			else{
-                //just keep state, nothing needs to write here
-                }
+//			if(heartBeatCounter1 > heartBeatCounter2){ // we define "1"is right side; "2"is left side;
+//				//stepper motor moves one step right
+//                
+//
+//				//led moves one step right
+//			           	LATBbits.LATB6 = 0;
+//    					Wait();		
+//  						  for(j=0;j<8;j++)
+//	                    	{LATBbits.LATB4 = 0;
+//	                    	LATBbits.LATB5 = data[t][j];
+//			                LATBbits.LATB4 = 1; 
+//	                     	}	
+//		                    LATBbits.LATB6 = 1;	
+//						t--;
+//               }
+//			else if (heartBeatCounter1 < heartBeatCounter2){
+//				//stepper motor moves one step left
+//
+//
+//				//led moves one step left
+//                        LATBbits.LATB6 = 0;
+//    			    	Wait();		
+//  						  for(j=0;j<8;j++)
+//	                    	{LATBbits.LATB4 = 0;
+//	                    	LATBbits.LATB5 = data[s][j];
+//			                LATBbits.LATB4 = 1; 
+//	                     	}	
+//		                    LATBbits.LATB6 = 1;
+//						s++;
+//			    }
+//			else{
+//                //just keep state, nothing needs to write here
+//                }
             }
 		}
 
@@ -246,8 +256,13 @@ void Init(void) {
 	LATBbits.LATB4 = 0;
 	TRISBbits.TRISB6 = 0;
 	LATBbits.LATB6 = 0;
-  //HR
-	peakBoolean = 0;
+  //HeartBeat
+	peakBoolean1 = 0;
+	peakBoolean2 = 0;
+	prevPeak1 = 0;
+	prevPeak2 = 0;
+	heartBeatCounter1 = 0;
+	heartBeatCounter2 = 0;
   //stepper motor
     
 
@@ -266,9 +281,13 @@ void Init(void) {
 
 	Init_Timer_Loop();			
 //	Init_PWM_Process();		//initialise the PWM module
-//	Init_ADC_Process();		//initialise the A/D module
+	Init_ADC_Process();		//initialise the A/D module
 //	Init_Stepper_Process();	//initialise the Stepper module
 }
+
+
+
+//============================LED===============================//
 
 void LedInit(void){
   LATBbits.LATB6 = 0;
@@ -321,34 +340,57 @@ void centerLed(void){
 			LATBbits.LATB6 = 1;	
 }
 
-char HeartDetect(unsigned char x){
-    int peak = 0;
-    int count = 0;
-    unsigned char i = 0;  //
-    unsigned char prevPeak = peakBoolean;
-	ADC_Process();
-    for(i=0;i < 5000; i++){	
-	  if(x==1) {peak = analogInput_1;} 
-      if(x==2) {peak = analogInput_2;} 
-		if(peakBoolean != prevPeak) {
-			prevPeak = peakBoolean;
-			if(peakBoolean == 1) {
-				count++;
-			} 
-		}
 
-		if(peak > 0x01ff)
-		{
-			peakBoolean = 1;
-		}
-		else
-		{
-			peakBoolean = 0;
-		}
-     }
-	return count;	
+
+
+//================================HeartBeat=====================================//
+unsigned char HeartDetect1(void){			// x is the number of Heartbeat sensor
+    int peak = 0;
+	ADC_Process();  		//not aware how long will it consume 
+	peak = analogInput_1;
+
+	if(peak > 0x01ff)		//0x01ff is 512, just 2.5V, 0 is 0V, 1024 is 5V
+	{   delayms(2);
+		if(peak > 0x01ff)	//avoid noise
+		{peakBoolean1 = 1;}
+	}
+	else
+	{
+		peakBoolean1 = 0;
+	}
+	
+
+	if(prevPeak1==0&&peakBoolean1==1)
+	{prevPeak1 = peakBoolean1;return 1;}
+	else
+	{prevPeak1 = peakBoolean1;return 0;}
 }
 
+unsigned char HeartDetect2(void){			// x is the number of Heartbeat sensor
+    int peak = 0;
+	ADC_Process();  		//not aware how long will it consume 
+	peak = analogInput_2;
+
+	if(peak > 0x01ff)		//0x01ff is 512, just 2.5V, 0 is 0V, 1024 is 5V
+	{   delayms(2);
+		if(peak > 0x01ff)	//avoid noise
+		{peakBoolean2 = 1;}
+	}
+	else
+	{
+		peakBoolean2 = 0;
+	}
+	
+
+	if(prevPeak2==0&&peakBoolean2==1)
+	{prevPeak2 = peakBoolean2;return 1;}
+	else
+	{prevPeak2 = peakBoolean2;return 0;}
+}
+
+
+
+//===============================Speaker=================================//
 void Speaker(void){
 	  if (speaker == 0) {	
 					if(i < 75) {
@@ -395,6 +437,15 @@ void Speaker(void){
 			} else {
 				counterSpeaker++;
 			}
+}
+
+void delayms(int ms)
+{	
+	int i;
+	for(i=0;i<ms;i++)
+	{
+		Wait();
+	}
 }
 
 
