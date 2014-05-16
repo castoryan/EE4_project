@@ -40,15 +40,13 @@
 
 ///** V A R I A B L E S ********************************************************/
 unsigned char State;
+unsigned char Winner;
 
 
 //Button
 long int ButtonCount;
 
 
-unsigned char buttonCounter;
-unsigned char prevState;
-//unsigned char b;
 int counterBlink1;
 int counterBlink2;
 
@@ -60,13 +58,30 @@ int m;
 
 
 ////LED
-unsigned char far rom data[16][8] = {{0,0,0,1,0,0,0,1},{0,0,0,1,0,0,1,0},{0,0,0,1,0,1,0,0},{0,0,0,1,1,0,0,0},{0,0,1,0,0,0,0,1},{0,0,1,0,0,0,1,0},{0,0,1,0,0,1,0,0},
-{0,0,1,0,1,0,0,0},
-{0,1,0,0,0,0,1,0},{0,1,0,0,0,1,0,0},{0,1,0,0,1,0,0,0},{1,0,0,0,0,0,0,1},{1,0,0,0,0,0,1,0},{1,0,0,0,0,1,0,0},{1,0,0,0,1,0,0,0},
-{0,1,0,0,0,0,0,1}};
-unsigned char j;
-unsigned char t;
-unsigned char f; 
+unsigned char far rom data[16][8] = 
+{
+{0,0,0,1,0,0,0,1},		//  Light0
+{0,0,0,1,0,0,1,0},		//  Light1
+{0,0,0,1,0,1,0,0},		//  Light2
+{0,0,0,1,1,0,0,0},		//  Light3
+{0,0,1,0,0,0,0,1},		//  Light4
+{0,0,1,0,0,0,1,0},		//  Light5
+{0,0,1,0,0,1,0,0},		//  Light6
+{0,0,1,0,1,0,0,0},		//  Light7
+{0,1,0,0,0,0,1,0},		//  Light8
+{0,1,0,0,0,1,0,0},		//  Light9
+{0,1,0,0,1,0,0,0},		//  Light10
+{1,0,0,0,0,0,0,1},		//  Light11
+{1,0,0,0,0,0,1,0},		//  Light12
+{1,0,0,0,0,1,0,0},		//  Light13
+{1,0,0,0,1,0,0,0},		//  Light14
+{0,1,0,0,0,0,0,1}		//  Light15
+};
+
+unsigned char FlagBlink1; 
+unsigned char FlagBlink2; 
+int counterBlink1;
+int counterBlink2;
 unsigned char LEDpos;
 
 ////HEARTBEAT
@@ -76,6 +91,8 @@ long int HRcount1;
 long int HRcount2;
 short int ScorePlayer1;
 short int ScorePlayer2;
+short int RealScorePlayer1;
+short int RealScorePlayer2;
 short int Player1HR;
 short int Player2HR;
 
@@ -89,15 +106,19 @@ void ButtonCheck(void);
 void LED_Init(void);
 void LED_Number(unsigned char);
 void LED_HRGame(void);
-void LED_Blink(void);
+void LED_Blink_Left(void);
+void LED_Blink_Right(void);
 
 
 //HeartRate
-void HR_Detect(unsigned char);
+void HeartBeatGame(void);
 
 //Speaker
 void Speaker(void);
 
+
+//Others
+void Delay(void);
 
 /** D E C L A R A T I O N S **************************************************/
 /******************************************************************************
@@ -132,57 +153,25 @@ Init();						//initialise the system
 
 			if(State%4 == 0)
 			{
-				
+				Init();	
 				LED_Init();
 				
 			}
 			if(State%4 == 1)
 			{
-				LED2 = 0;
-				LED_Number(15);	
-				LED_Number(5);
+				LED2 = 1;
+				LED_Number(15);
+				LED_Blink_Left();
 			}
 			if(State%4 == 2)
 			{	
 				LED2 = 0;
-				LED_Blink();
+				LED_Blink_Right();
 			}
 			if(State%4 == 3)
 			{	
 				LED2 = 1;
-				if(Player1HR >500)
-				{	HRcount1++;   }
-				else
-				{	HRcount1 = 0; }
-
-				if(Player2HR >500)
-				{	HRcount2++;   }
-				else
-				{   HRcount2 = 0; }
-
-
-
-				if(HRcount1 == 100){ 	//count for 100 ms
-					HRcount1 = 0;
-					ScorePlayer1++;
-				}
-				if(HRcount2 == 100){    //count for 100 ms
-					HRcount2 = 0;
-					ScorePlayer2++;
-				}
-				
-				
-				if(LEDpos > 0 && LEDpos < 14)
-				{
-					LEDpos = ScorePlayer2 - ScorePlayer1 + 7;
-					LED_Number(LEDpos);	
-				}
-				else
-				{
-					if(LEDpos == 14){LED_Number(14);}
-					if(LEDpos == 0 ){LED_Number(0 );}
-				}	
-				
+				HeartBeatGame();
 
 
 			}
@@ -198,7 +187,7 @@ Init();						//initialise the system
 		Wait();				//wait until one 1m has elapesed
 //		PWM_Process();		//execute one step in the PWM prosess
 //		Stepper_Step(0, 1);	//Asks the Stepper_Process to turn the motor 1 step CW
-		Wait();				//wait until one 1m has elapesed
+//		Wait();				//wait until one 1m has elapesed
 	}
 }
 
@@ -221,8 +210,9 @@ void Init(void) {
 	TRISCbits.TRISC1 = 0;
 	LATCbits.LATC1 = 0;
 
-	TRISCbits.TRISC0 = 1;
-	TRISBbits.TRISB0 = 1;	
+	//Button
+	TRISCbits.TRISC6 = 1;
+	TRISBbits.TRISB7 = 1;	
 
 
 	//LED
@@ -239,17 +229,17 @@ void Init(void) {
 
 ///////Variables
 	State = 0;
-
+	Winner = 0;
 
 	
 	//Button
 	ButtonCount = 0;
 
 	//LED
-    t = 7;
-	j = 0;
-	f = 0;
+	FlagBlink1 = 0;
+	FlagBlink2 = 0;
 	counterBlink1 = 0;
+	counterBlink2 = 0;
 	LEDpos = 7;
 
   	//HeartRate
@@ -257,12 +247,13 @@ void Init(void) {
 	peakBoolean2 = 0;
 	Player1HR = 0;
 	Player2HR = 0;
+	RealScorePlayer1 = 0;
+	RealScorePlayer2 = 0;
 	ScorePlayer1 = 0;
 	ScorePlayer2 = 0;
 
 
 	//Speaker
-    buttonCounter = 0;
 	counterSpeaker = 0;
 	i=0; 
 
@@ -280,8 +271,8 @@ void Init(void) {
 //===================== Button =====================//
 
 
-void ButtonCheck(void)
-{
+void ButtonCheck(void){
+		
 		if(Button1 == 0)						//
 		{
 	    	ButtonCount++;
@@ -298,20 +289,22 @@ void ButtonCheck(void)
 //======================== LED =========================//
 
 void LED_Init(void){
-  LATBbits.LATB6 = 0;
-  Wait();		
-  for(j=0;j<8;j++){
-			LATBbits.LATB4 = 0;
-	     	LATBbits.LATB5 = 0;
-			LATBbits.LATB4 = 1; 
+
+	unsigned char j;
+	LATBbits.LATB6 = 0;
+	Delay();		
+  	for(j=0;j<8;j++){
+		LATBbits.LATB4 = 0;
+	    LATBbits.LATB5 = 0;
+		LATBbits.LATB4 = 1; 
 	}	
 	LATBbits.LATB6 = 1;	
 }
 
 void LED_Number(unsigned char d){
-
+	unsigned char j;
 	LATBbits.LATB6 = 0;
-	Wait();
+	Delay();
 	for(j=0;j<8;j++){
 		LATBbits.LATB4 = 0;
 		LATBbits.LATB5 = data[d][j];
@@ -321,11 +314,11 @@ void LED_Number(unsigned char d){
 }
 
 
-
-void LED_HRGame(void){
+void LED_Left_Four(void){
   unsigned char firstFour[8] = {0,0,0,1,1,1,1,1};
+  unsigned char j;
   LATBbits.LATB6 = 0;     
-  Wait();
+  Delay();
 		for(j=0;j<8;j++)
 		{
 			LATBbits.LATB4 = 0;
@@ -335,62 +328,108 @@ void LED_HRGame(void){
 			LATBbits.LATB6 = 1;	
 }
 
-void LED_Blink(void)
-{
-		// the first four leds blink to show it's HR game and sLed Off
+void LED_Right_Four(void){
+  unsigned char firstFour[8] = {0,1,0,1,1,0,0,1};
+  unsigned char j;
+  LATBbits.LATB6 = 0;     
+  Delay();
+		for(j=0;j<8;j++)
+		{
+			LATBbits.LATB4 = 0;
+	     	LATBbits.LATB5 = firstFour[j];
+			LATBbits.LATB4 = 1; 
+		}	
+			LATBbits.LATB6 = 1;	
+}
+
+void LED_Blink_Left(void){
+		
+// the first four leds blink to show it's HR game and sLed Off
 		if(counterBlink1 == 0) {			
-			if(f == 0){			
-			    LED_HRGame();   //four Leds on
+			if(FlagBlink1 == 0){			
+			    LED_Left_Four();   //four Leds on
 			}
-			if(f == 1){
+			if(FlagBlink1 == 1){
 		    	LED_Init();  //four Leds off
 			}
 		}
 
-		if (counterBlink1 == 1000) {				//game status
+		if (counterBlink1 == 1000) {				//blink for 1s
 			counterBlink1 = 0;
-			f++;
-            if(f > 1){f = 0;}
+			FlagBlink1++;
+            if(FlagBlink1 > 1){FlagBlink1 = 0;}
 		} 
 		else {
 			counterBlink1++;
 		}
 }
 
-//===================== HeartBeat =====================//
-unsigned int HeartDetect(unsigned int x){
-    int peak = 0;
-
-	  ADC_Process();	
-	  if(x==1) {
-
-		peak = analogInput_1; 
-		if(peak > 0x01ff)
-		{
-			peakBoolean1 = 1;
-		}
-		else
-		{
-			peakBoolean1 = 0;
-		}
-     		return 	peakBoolean1;
-		}
-
-		if(x==2)
-		{
-		peak = analogInput_2;
+void LED_Blink_Right(void){
 		
-		if(peak > 0x01ff)
-		{
-			peakBoolean2 = 1;
+// the first four leds blink to show it's HR game and sLed Off
+		if(counterBlink2 == 0) {			
+			if(FlagBlink2 == 0){			
+			    LED_Right_Four();   //four Leds on
+			}
+			if(FlagBlink2 == 1){
+		    	LED_Init();  //four Leds off
+			}
 		}
-		else
-		{
-			peakBoolean2 = 0;
+
+		if (counterBlink2 == 1000) {				//blink for 1s
+			counterBlink2 = 0;
+			FlagBlink2++;
+            if(FlagBlink2 > 1){FlagBlink2 = 0;}
+		} 
+		else {
+			counterBlink2++;
 		}
-     
-			return 	peakBoolean2;
-		}
+}
+
+//===================== HeartBeat =====================//
+void HeartBeatGame(void){
+    
+
+	if(Player1HR >500)
+	{	HRcount1++;   }
+	else
+	{	HRcount1 = 0; }
+
+	if(Player2HR >500)
+	{	HRcount2++;   }
+	else
+	{   HRcount2 = 0; }
+
+
+
+	if(HRcount1 == 100){ 	//count for 100 ms
+		HRcount1 = 0;
+		RealScorePlayer1++;
+	}
+	if(HRcount2 == 100){    //count for 100 ms
+		HRcount2 = 0;
+		RealScorePlayer2++;
+	}
+
+	if(RealScorePlayer1 == 5){ 	//count for 5 times
+		RealScorePlayer1 = 0;
+		ScorePlayer1++;
+	}
+	if(RealScorePlayer2 == 5){ 	//count for 5 times
+		RealScorePlayer2 = 0;
+		ScorePlayer2++;
+	}
+				
+	if(LEDpos > 0 && LEDpos < 14)
+	{
+		LEDpos = ScorePlayer2 - ScorePlayer1 + 7;
+		LED_Number(LEDpos);	
+	}
+	else
+	{
+		if(LEDpos == 14){LED_Number(14);Winner = 1; }
+		if(LEDpos == 0 ){LED_Number(0 );Winner = 2; }
+	}
 
 }
 
@@ -439,4 +478,13 @@ void Speaker(void){
 				counterSpeaker++;
 			}
 }
+
+//========================Others=====================================
+void Delay(void){	
+	int tt;
+	for(tt = 0; tt<200;tt++);
+}
+
+
+
 //EOF-------------------------------------------------------------------------

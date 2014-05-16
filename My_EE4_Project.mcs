@@ -2,7 +2,7 @@
 MagicCookie={0b13fe8c-dfe0-40eb-8900-6712719559a7}
 Version=1.0
 [File000]
-Location=D:\GitHub\My_EE4_Original\output\config.o
+Location=D:\GitHub\EE4_project\output\config.o
 Folder=Intermediary
 DeviceName=PIC18F2550
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -15,7 +15,7 @@ ToolArgsString=-Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
 TraceCmdString=
 DebugOptions=-D__DEBUG
 [File001]
-Location=D:\GitHub\My_EE4_Original\output\main.o
+Location=D:\GitHub\EE4_project\output\main.o
 Folder=Intermediary
 DeviceName=PIC18F2550
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -28,7 +28,7 @@ ToolArgsString=-Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
 TraceCmdString=
 DebugOptions=-D__DEBUG
 [File002]
-Location=D:\GitHub\My_EE4_Original\output\pwm_process.o
+Location=D:\GitHub\EE4_project\output\pwm_process.o
 Folder=Intermediary
 DeviceName=PIC18F2550
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -41,7 +41,7 @@ ToolArgsString=-Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
 TraceCmdString=
 DebugOptions=-D__DEBUG
 [File003]
-Location=D:\GitHub\My_EE4_Original\output\stepper_process.o
+Location=D:\GitHub\EE4_project\output\stepper_process.o
 Folder=Intermediary
 DeviceName=PIC18F2550
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -54,7 +54,7 @@ ToolArgsString=-Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
 TraceCmdString=
 DebugOptions=-D__DEBUG
 [File004]
-Location=D:\GitHub\My_EE4_Original\output\adc_process.o
+Location=D:\GitHub\EE4_project\output\adc_process.o
 Folder=Intermediary
 DeviceName=PIC18F2550
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -67,7 +67,7 @@ ToolArgsString=-Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
 TraceCmdString=
 DebugOptions=-D__DEBUG
 [File005]
-Location=D:\GitHub\My_EE4_Original\output\My_EE4_Project.cof
+Location=D:\GitHub\EE4_project\output\My_EE4_Project.cof
 Folder=Output
 DeviceName=PIC18F2550
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -80,7 +80,7 @@ ToolArgsString=/m"$(BINDIR_)$(TARGETBASE).map" /w /o"$(BINDIR_)$(TARGETBASE).cof
 TraceCmdString=
 DebugOptions=/z__MPLAB_DEBUG=1
 [File006]
-Location=D:\GitHub\My_EE4_Original\output\My_EE4_Project.hex
+Location=D:\GitHub\EE4_project\output\My_EE4_Project.hex
 Folder=Output
 DeviceName=PIC18F2550
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -93,7 +93,7 @@ ToolArgsString=/m"$(BINDIR_)$(TARGETBASE).map" /w /o"$(BINDIR_)$(TARGETBASE).cof
 TraceCmdString=
 DebugOptions=/z__MPLAB_DEBUG=1
 [File007]
-Location=D:\GitHub\My_EE4_Original\output\My_EE4_Project.map
+Location=D:\GitHub\EE4_project\output\My_EE4_Project.map
 Folder=Output
 DeviceName=PIC18F2550
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
