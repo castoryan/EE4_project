@@ -31,56 +31,73 @@
 #include "stepper_process.h"
 
 
-/** D E F I N E S ********************************************************/
-//SPEAKER
-#define SPEAKER LATAbits.LATA0
-#define Button PORTCbits.RC0  //still need to decide which pin we can use here
-#define GameButton PORTBbits.RB1  //still need to decide which pin we can use here
+#define Button2 PORTBbits.RB7
+#define Button1 PORTCbits.RC6  	
 
-/** V A R I A B L E S ********************************************************/
+#define LED2 LATCbits.LATC1 	
+
+#define SPEAKER LATAbits.LATA0
+
+///** V A R I A B L E S ********************************************************/
+unsigned char State;
+
+
+//Button
+long int ButtonCount;
+
+
 unsigned char buttonCounter;
 unsigned char prevState;
 //unsigned char b;
-unsigned char counterBlink1;
-unsigned char counterBlink2;
-//unsigned char timeDelayBefore;				// this is the timedelay before the game starts so that the players have time to prepare. 
-//unsigned char timeDelayAfter;
-//unsigned char gameOver;
+int counterBlink1;
+int counterBlink2;
+
 
 //SPEAKER
 unsigned char counterSpeaker;
 int i;
 int m;
-//int u;  //?is used??
 
-//LED
-unsigned char data[16][8] = {{0,0,0,1,0,0,0,1},{0,0,0,1,0,0,1,0},{0,0,0,1,0,1,0,0},{0,0,0,1,1,0,0,0},{0,0,1,0,0,0,0,1},{0,0,1,0,0,0,1,0},{0,0,1,0,0,1,0,0},
+
+////LED
+unsigned char far rom data[16][8] = {{0,0,0,1,0,0,0,1},{0,0,0,1,0,0,1,0},{0,0,0,1,0,1,0,0},{0,0,0,1,1,0,0,0},{0,0,1,0,0,0,0,1},{0,0,1,0,0,0,1,0},{0,0,1,0,0,1,0,0},
 {0,0,1,0,1,0,0,0},
 {0,1,0,0,0,0,1,0},{0,1,0,0,0,1,0,0},{0,1,0,0,1,0,0,0},{1,0,0,0,0,0,0,1},{1,0,0,0,0,0,1,0},{1,0,0,0,0,1,0,0},{1,0,0,0,1,0,0,0},
 {0,1,0,0,0,0,0,1}};
 unsigned char j;
 unsigned char t;
+unsigned char f; 
+unsigned char LEDpos;
 
-//HEARTBEAT
-unsigned char prevPeak;
-unsigned char heartBeatPiek1;					// the number 1 and 2 indicate players 1 and 2
-unsigned char heartBeatCounter1;				//counts the amount of pieks during an amount of time determend by the heartBeatTimer
-unsigned char heartBeatPiek2;
-unsigned char heartBeatCounter2;
-unsigned char heartBeatTimer;
-unsigned int peakBoolean;
-unsigned char counterHR;
+////HEARTBEAT
+unsigned int peakBoolean1;
+unsigned int peakBoolean2;
+long int HRcount1;
+long int HRcount2;
+short int ScorePlayer1;
+short int ScorePlayer2;
+short int Player1HR;
+short int Player2HR;
 
-
-
-/** P R I V A T E  P R O T O T Y P E S ***************************************/
+///** P R I V A T E  P R O T O T Y P E S ***************************************/
 void Init(void);
-void LedInit(void);
-void ledNumber(unsigned char);
-void HRGameLight(void);
+
+//Button
+void ButtonCheck(void);
+
+//LED
+void LED_Init(void);
+void LED_Number(unsigned char);
+void LED_HRGame(void);
+void LED_Blink(void);
+
+
+//HeartRate
+void HR_Detect(unsigned char);
+
+//Speaker
 void Speaker(void);
-unsigned int HeartDetect(unsigned int);
-void delayms(int);
+
 
 /** D E C L A R A T I O N S **************************************************/
 /******************************************************************************
@@ -94,119 +111,95 @@ void delayms(int);
  *
  * Overview:        Main program entry point.
  *****************************************************************************/
-void main(void) {	
-	unsigned char f = 0; 
-	Init();					
-	while(1) { 
-// pushing button times
-	if(Button != prevState)//Firstly Button=1,prevState =1;
-	{
-		Wait();
-		Wait();
-		if(Button != prevState)
+void main(void) {
+
+Init();						//initialise the system
+	while(1) {
+
+		ButtonCheck();
+			
+
+		if(Button1 == 1)
 		{
-			prevState = Button;
-			if (Button == 0) {							// only use rising edge
-				buttonCounter++;					// increment the amount of button pushing
+			ButtonCount = 0;
+//		switch(State%4)
+//		{ 
+//			case 0:		break;
+//			case 1:		break;
+//			case 2:		break;
+//			case 3:		break;
+//		}
+
+			if(State%4 == 0)
+			{
+				
+				LED_Init();
+				
 			}
-		}
-	}
-//select different modes
- 	    if(buttonCounter%3 == 0){
-       LedInit();
-       }
-// stand by
-	    if(buttonCounter%3 == 1){
-	//sLed on
-       ledNumber(15);
-       }
-
- //HeartBeat
-	if(buttonCounter%3 == 2){
-	   if( GameButton == 0){	   // not that good, maybe need to detect rising edge
-        // the first four leds blink to show it's HR game and sLed Off
-		if(counterBlink1 == 0) {			
-			if(f == 0){			
-			    HRGameLight();   //four Leds on
+			if(State%4 == 1)
+			{
+				LED2 = 0;
+				LED_Number(15);	
+				LED_Number(5);
 			}
-			if(f == 1){
-		    	LedInit();  //four Leds off
-
+			if(State%4 == 2)
+			{	
+				LED2 = 0;
+				LED_Blink();
 			}
-		}
-		if (counterBlink1 == 500) {				//game status
-			counterBlink1 = 0;
-			f++;
-            if(f > 1) { f = 0;}
-		} 
-		else {
-			counterBlink1++;
-		}
-       Wait();	
-      }
-  //push GameButton to start HR game
-       if(GameButton == 1){    // not that good
-		   // all Leds off
-			LedInit();
-		   // the led in board center needs to be on
-		//	ledNumber(7);	
-           // speaker on (maybe later off)
-            Speaker(); // made it in process file
-            delayms(2000);
-		   // compare two persons' heartbeat
-          if(t == 13 || t == 0){
-			    	if(t == 13) {									//data[][] = ... 4 leds will burn at the winners side
-						  ledNumber(13);
-							delayms(500);
-					      }	
-					else {	
-						  ledNumber(0);
-							delayms(500);	
-					 }
-			        // some congradulations
-					
-				    // initialize all the things
+			if(State%4 == 3)
+			{	
+				LED2 = 1;
+				if(Player1HR >500)
+				{	HRcount1++;   }
+				else
+				{	HRcount1 = 0; }
+
+				if(Player2HR >500)
+				{	HRcount2++;   }
+				else
+				{   HRcount2 = 0; }
+
+
+
+				if(HRcount1 == 100){ 	//count for 100 ms
+					HRcount1 = 0;
+					ScorePlayer1++;
+				}
+				if(HRcount2 == 100){    //count for 100 ms
+					HRcount2 = 0;
+					ScorePlayer2++;
+				}
+				
+				
+				if(LEDpos > 0 && LEDpos < 14)
+				{
+					LEDpos = ScorePlayer2 - ScorePlayer1 + 7;
+					LED_Number(LEDpos);	
+				}
+				else
+				{
+					if(LEDpos == 14){LED_Number(14);}
+					if(LEDpos == 0 ){LED_Number(0 );}
+				}	
+				
+
 
 			}
-          else{
-			heartBeatCounter1 = HeartDetect(1);
-			heartBeatCounter2 = HeartDetect(2);
-		//	if(heartBeatCounter1 > heartBeatCounter2){ // we define "1"is right side; "2"is left side;
-			if( heartBeatCounter1 == 1 ){			
-	//stepper motor moves one step right
-                
 
-				//led moves one step right
-						t--;
-                        ledNumber(t);
-						
-               }
-		//	else if (heartBeatCounter1 < heartBeatCounter2){
-
-			if(heartBeatCounter2 == 1 ){
-		//stepper motor moves one step left
-
-
-				//led moves one step left
-						t++;                        
-						ledNumber(t);							
-			    }
-			delayms(500);
-
-            }
 		}
 
-   }
- //EEG   
-   if(buttonCounter%4 == 3){
 
-   }
- 
-//		ADC_Process();		//execute one step in the ADC prosess
+
+
+		ADC_Process();		//execute one step in the ADC prosess
+		Player1HR = analogInput_0;
+		Player2HR = analogInput_1;
+		Wait();				//wait until one 1m has elapesed
 //		PWM_Process();		//execute one step in the PWM prosess
 //		Stepper_Step(0, 1);	//Asks the Stepper_Process to turn the motor 1 step CW
-		Wait();				//wait until one 1ms has elapese
-}
+		Wait();				//wait until one 1m has elapesed
+	}
 }
 
 /******************************************************************************
@@ -224,73 +217,112 @@ void main(void) {
  *                  called from here.                  
  *****************************************************************************/
 void Init(void) {
-//configure I/O
+	//configure I/O
+	TRISCbits.TRISC1 = 0;
+	LATCbits.LATC1 = 0;
+
 	TRISCbits.TRISC0 = 1;
-	prevState=1;
-	
-	PORTCbits.RC0 = 1;
-	TRISBbits.TRISB1 = 1;
-	PORTBbits.RB1 = 0;
-  //speaker
-	TRISAbits.TRISA0 = 0;
-	LATAbits.LATA0 = 0;
-  //led
-   	TRISBbits.TRISB5 = 0;
-	LATBbits.LATB5 = 0;
-    TRISBbits.TRISB4 = 0;
+	TRISBbits.TRISB0 = 1;	
+
+
+	//LED
+	TRISBbits.TRISB4 = 0;
 	LATBbits.LATB4 = 0;
+
+   	TRISBbits.TRISB5 = 0;		
+	LATBbits.LATB5 = 0;
+    
 	TRISBbits.TRISB6 = 0;
 	LATBbits.LATB6 = 0;
-  //HR
-	peakBoolean = 0;
-  //stepper motor
-   // TRISCbits.TRISC0 = 1;
+	
 
-//other variables
-	//speaker
+
+///////Variables
+	State = 0;
+
+
+	
+	//Button
+	ButtonCount = 0;
+
+	//LED
+    t = 7;
+	j = 0;
+	f = 0;
+	counterBlink1 = 0;
+	LEDpos = 7;
+
+  	//HeartRate
+	peakBoolean1 = 0;
+	peakBoolean2 = 0;
+	Player1HR = 0;
+	Player2HR = 0;
+	ScorePlayer1 = 0;
+	ScorePlayer2 = 0;
+
+
+	//Speaker
     buttonCounter = 0;
 	counterSpeaker = 0;
 	i=0; 
-    counterBlink1 = 0;
-	//led
-     t = 7;
-	 j = 0;
-     
 
 
+
+	
 	Init_Timer_Loop();			
 //	Init_PWM_Process();		//initialise the PWM module
 	Init_ADC_Process();		//initialise the A/D module
 //	Init_Stepper_Process();	//initialise the Stepper module
 }
 
-void LedInit(void){
+
+
+//===================== Button =====================//
+
+
+void ButtonCheck(void)
+{
+		if(Button1 == 0)						//
+		{
+	    	ButtonCount++;
+			if(ButtonCount == 30)
+			{
+				State++;					// increment the amount of button pushing
+			}
+		}
+}
+
+
+
+
+//======================== LED =========================//
+
+void LED_Init(void){
   LATBbits.LATB6 = 0;
   Wait();		
-  for(j=0;j<8;j++)
-		{
+  for(j=0;j<8;j++){
 			LATBbits.LATB4 = 0;
 	     	LATBbits.LATB5 = 0;
 			LATBbits.LATB4 = 1; 
-		}	
-		LATBbits.LATB6 = 1;	
+	}	
+	LATBbits.LATB6 = 1;	
 }
 
-void ledNumber(unsigned char d){
+void LED_Number(unsigned char d){
 
 	LATBbits.LATB6 = 0;
-			Wait();
-		for(j=0;j<8;j++)
-		{
-			LATBbits.LATB4 = 0;
-			LATBbits.LATB5 = data[d][j];
-			LATBbits.LATB4 = 1; 
-		}	
-		LATBbits.LATB6 = 1;        
+	Wait();
+	for(j=0;j<8;j++){
+		LATBbits.LATB4 = 0;
+		LATBbits.LATB5 = data[d][j];
+		LATBbits.LATB4 = 1; 
+	}	
+	LATBbits.LATB6 = 1;        
 }
 
 
-void HRGameLight(void){
+
+void LED_HRGame(void){
   unsigned char firstFour[8] = {0,0,0,1,1,1,1,1};
   LATBbits.LATB6 = 0;     
   Wait();
@@ -303,34 +335,67 @@ void HRGameLight(void){
 			LATBbits.LATB6 = 1;	
 }
 
+void LED_Blink(void)
+{
+		// the first four leds blink to show it's HR game and sLed Off
+		if(counterBlink1 == 0) {			
+			if(f == 0){			
+			    LED_HRGame();   //four Leds on
+			}
+			if(f == 1){
+		    	LED_Init();  //four Leds off
+			}
+		}
 
+		if (counterBlink1 == 1000) {				//game status
+			counterBlink1 = 0;
+			f++;
+            if(f > 1){f = 0;}
+		} 
+		else {
+			counterBlink1++;
+		}
+}
+
+//===================== HeartBeat =====================//
 unsigned int HeartDetect(unsigned int x){
     int peak = 0;
-    int count = 0;
-    //int ii = 0;
-    //unsigned char prevPeak = peakBoolean;
-	  ADC_Process();	
-	  if(x==1) {peak = analogInput_1;} 
-      if(x==2) {peak = analogInput_2;} 
-//		if(peakBoolean != prevPeak) {
-//			prevPeak = peakBoolean;
-//			if(peakBoolean == 1) {
-//				count++;
-//			} 
-//		}
 
+	  ADC_Process();	
+	  if(x==1) {
+
+		peak = analogInput_1; 
 		if(peak > 0x01ff)
 		{
-			peakBoolean = 1;
+			peakBoolean1 = 1;
 		}
 		else
 		{
-			peakBoolean = 0;
+			peakBoolean1 = 0;
+		}
+     		return 	peakBoolean1;
+		}
+
+		if(x==2)
+		{
+		peak = analogInput_2;
+		
+		if(peak > 0x01ff)
+		{
+			peakBoolean2 = 1;
+		}
+		else
+		{
+			peakBoolean2 = 0;
 		}
      
-	return 	peakBoolean;	
+			return 	peakBoolean2;
+		}
+
 }
 
+
+//===================== Speaker =====================//
 void Speaker(void){	
 					if(i < 75) {
 						m =5;	
@@ -373,16 +438,5 @@ void Speaker(void){
 			} else {
 				counterSpeaker++;
 			}
-}
-
-void delayms(int ms)
-{	
-	int i;
-    long int j;
-	for(i=0;i<ms;i++)
-	{
-		Wait();
-		//for(j=0;j<200000;j++);
-	}
 }
 //EOF-------------------------------------------------------------------------

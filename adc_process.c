@@ -9,7 +9,7 @@
  * Compiler:        C18 2.30+
  * Company:         KULeuven - GROUPT
  *
- * THIS SOFTWARE IS PROVIDED IN AN “AS IS” CONDITION. NO WARRANTIES,
+ * THIS SOFTWARE IS PROVIDED IN AN “AS IS?CONDITION. NO WARRANTIES,
  * WHETHER EXPRESS, IMPLIED OR STATUTORY, INCLUDING, BUT NOT LIMITED
  * TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
  * PARTICULAR PURPOSE APPLY TO THIS SOFTWARE. THE COMPANY SHALL NOT,
@@ -48,7 +48,7 @@ int analogInput_4;
 void Init_ADC_Process() {
 	
 	TRISAbits.TRISA0 = 1;	//configure AN0 I/O direction
-	TRISAbits.TRISA1 = 0;	//configure AN1 I/O direction
+	TRISAbits.TRISA1 = 1;	//configure AN1 I/O direction
 	TRISAbits.TRISA2 = 0;	//configure AN2 I/O direction
 	TRISAbits.TRISA3 = 0;	//configure AN3 I/O direction
 	TRISAbits.TRISA5 = 0;	//configure AN4 I/O direction
@@ -59,7 +59,7 @@ void Init_ADC_Process() {
 		 ADC_CH0          &		//initially select AD channel 0
 		 ADC_INT_OFF      &		//disable interrupts for A/D module
 		 ADC_REF_VDD_VSS,		//select Vdd and GND as upper and lower reference
-		 ADC_1ANA);				//select number of active ADC channels
+		 ADC_2ANA);				//select number of active ADC channels
 								/*
 								 * ADC_0ANA    All digital
 								 * ADC_1ANA    analog:AN0

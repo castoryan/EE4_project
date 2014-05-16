@@ -8,9 +8,9 @@ dir_src=
 dir_bin=output
 dir_tmp=output
 dir_sin=
-dir_inc=E:\ee4\MCC18\h
-dir_lib=E:\ee4\MCC18\lib
-dir_lkr=E:\ee4\MCC18\bin\LKR
+dir_inc=D:\MCC18\h
+dir_lib=d:\MCC18\lib
+dir_lkr=d:\MCC18\bin\LKR
 [CAT_FILTERS]
 filter_src=*.asm;*.c
 filter_inc=*.h;*.inc
