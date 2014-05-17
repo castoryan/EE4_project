@@ -31,12 +31,13 @@
 #include "stepper_process.h"
 
 
+
 #define Button2 PORTBbits.RB7
 #define Button1 PORTCbits.RC6  	
 
 #define LED2 LATCbits.LATC1 	
 
-#define SPEAKER LATAbits.LATA0
+//#define SPEAKER LATAbits.LATA4
 
 ///** V A R I A B L E S ********************************************************/
 unsigned char State;
@@ -47,18 +48,15 @@ unsigned char Winner;
 long int ButtonCount;
 
 
-int counterBlink1;
-int counterBlink2;
+
+////SPEAKER
+//unsigned char counterSpeaker;
+//int i;
+//int m;
 
 
-//SPEAKER
-unsigned char counterSpeaker;
-int i;
-int m;
-
-
-////LED
-unsigned char far rom data[16][8] = 
+//LED
+const unsigned char far rom data[16][8] = 
 {
 {0,0,0,1,0,0,0,1},		//  Light0
 {0,0,0,1,0,0,1,0},		//  Light1
@@ -77,16 +75,14 @@ unsigned char far rom data[16][8] =
 {1,0,0,0,1,0,0,0},		//  Light14
 {0,1,0,0,0,0,0,1}		//  Light15
 };
-
+//unsigned char far rom data[1][1];
 unsigned char FlagBlink1; 
 unsigned char FlagBlink2; 
 int counterBlink1;
 int counterBlink2;
 unsigned char LEDpos;
 
-////HEARTBEAT
-unsigned int peakBoolean1;
-unsigned int peakBoolean2;
+//HEARTBEAT
 long int HRcount1;
 long int HRcount2;
 short int ScorePlayer1;
@@ -96,14 +92,15 @@ short int RealScorePlayer2;
 short int Player1HR;
 short int Player2HR;
 
-///** P R I V A T E  P R O T O T Y P E S ***************************************/
+
+/** P R I V A T E  P R O T O T Y P E S ***************************************/
 void Init(void);
 
 //Button
 void ButtonCheck(void);
 
 //LED
-void LED_Init(void);
+void LED_All_Off(void);
 void LED_Number(unsigned char);
 void LED_HRGame(void);
 void LED_Blink_Left(void);
@@ -154,40 +151,49 @@ Init();						//initialise the system
 			if(State%4 == 0)
 			{
 				Init();	
-				LED_Init();
+				LED_All_Off();
 				
 			}
 			if(State%4 == 1)
 			{
 				LED2 = 1;
 				LED_Number(15);
-				LED_Blink_Left();
+				LED_Number(7);
 			}
 			if(State%4 == 2)
 			{	
 				LED2 = 0;
-				LED_Blink_Right();
+				LED_Blink_Left();
 			}
 			if(State%4 == 3)
 			{	
-				LED2 = 1;
-				HeartBeatGame();
-
-
+				
+				
+				if(Winner  == 0 ){
+					LED2 = 1;
+					HeartBeatGame();
+				};
+				if(Winner  == 1 ){LED_Blink_Right();};
+				if(Winner  == 2 ){LED_Blink_Left();};
 			}
 
 		}
+		
 
+//		if(Player1HR >500)
+//		{LED2 = 1;}
+//		else
+//		{LED2 = 0;}
 
 
 
 		ADC_Process();		//execute one step in the ADC prosess
 		Player1HR = analogInput_0;
 		Player2HR = analogInput_1;
-		Wait();				//wait until one 1m has elapesed
+//		Wait();				//wait until one 1m has elapesed
 //		PWM_Process();		//execute one step in the PWM prosess
 //		Stepper_Step(0, 1);	//Asks the Stepper_Process to turn the motor 1 step CW
-//		Wait();				//wait until one 1m has elapesed
+		Wait();				//wait until one 1m has elapesed
 	}
 }
 
@@ -214,7 +220,6 @@ void Init(void) {
 	TRISCbits.TRISC6 = 1;
 	TRISBbits.TRISB7 = 1;	
 
-
 	//LED
 	TRISBbits.TRISB4 = 0;
 	LATBbits.LATB4 = 0;
@@ -225,13 +230,10 @@ void Init(void) {
 	TRISBbits.TRISB6 = 0;
 	LATBbits.LATB6 = 0;
 	
-
-
-///////Variables
+//Variables
 	State = 0;
 	Winner = 0;
 
-	
 	//Button
 	ButtonCount = 0;
 
@@ -243,8 +245,6 @@ void Init(void) {
 	LEDpos = 7;
 
   	//HeartRate
-	peakBoolean1 = 0;
-	peakBoolean2 = 0;
 	Player1HR = 0;
 	Player2HR = 0;
 	RealScorePlayer1 = 0;
@@ -254,8 +254,8 @@ void Init(void) {
 
 
 	//Speaker
-	counterSpeaker = 0;
-	i=0; 
+//	counterSpeaker = 0;
+//	i=0; 
 
 
 
@@ -288,11 +288,11 @@ void ButtonCheck(void){
 
 //======================== LED =========================//
 
-void LED_Init(void){
+void LED_All_Off(void){
 
 	unsigned char j;
 	LATBbits.LATB6 = 0;
-	Delay();		
+	Wait();		
   	for(j=0;j<8;j++){
 		LATBbits.LATB4 = 0;
 	    LATBbits.LATB5 = 0;
@@ -304,7 +304,7 @@ void LED_Init(void){
 void LED_Number(unsigned char d){
 	unsigned char j;
 	LATBbits.LATB6 = 0;
-	Delay();
+	Wait();
 	for(j=0;j<8;j++){
 		LATBbits.LATB4 = 0;
 		LATBbits.LATB5 = data[d][j];
@@ -318,7 +318,7 @@ void LED_Left_Four(void){
   unsigned char firstFour[8] = {0,0,0,1,1,1,1,1};
   unsigned char j;
   LATBbits.LATB6 = 0;     
-  Delay();
+  Wait();
 		for(j=0;j<8;j++)
 		{
 			LATBbits.LATB4 = 0;
@@ -332,7 +332,7 @@ void LED_Right_Four(void){
   unsigned char firstFour[8] = {0,1,0,1,1,0,0,1};
   unsigned char j;
   LATBbits.LATB6 = 0;     
-  Delay();
+  Wait();
 		for(j=0;j<8;j++)
 		{
 			LATBbits.LATB4 = 0;
@@ -350,7 +350,7 @@ void LED_Blink_Left(void){
 			    LED_Left_Four();   //four Leds on
 			}
 			if(FlagBlink1 == 1){
-		    	LED_Init();  //four Leds off
+		    	LED_All_Off();  //four Leds off
 			}
 		}
 
@@ -372,7 +372,7 @@ void LED_Blink_Right(void){
 			    LED_Right_Four();   //four Leds on
 			}
 			if(FlagBlink2 == 1){
-		    	LED_Init();  //four Leds off
+		    	LED_All_Off();  //four Leds off
 			}
 		}
 
@@ -391,9 +391,9 @@ void HeartBeatGame(void){
     
 
 	if(Player1HR >500)
-	{	HRcount1++;   }
+	{	HRcount1++;   LED2 = 1;  }
 	else
-	{	HRcount1 = 0; }
+	{	HRcount1 = 0; LED2 = 0; }
 
 	if(Player2HR >500)
 	{	HRcount2++;   }
@@ -432,59 +432,59 @@ void HeartBeatGame(void){
 	}
 
 }
-
-
-//===================== Speaker =====================//
-void Speaker(void){	
-					if(i < 75) {
-						m =5;	
-					} else {
-						if( i < 125) {
-							m = 10;
-						} else {
-							if( i < 200) {
-								m = 15;
-							} else {
-								if(i < 250) {
-									m = 3;
-								} else {
-									if( i < 125) {
-										m = 5;
-									} else {
-										if( i < 200) {
-											m = 7;
-										} else {
-											if(i < 250) {
-												m = 10;
-											} else {
-												i = 0;
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-					
-								
-				if (counterSpeaker == 0 ) {
-					SPEAKER = !SPEAKER;
-					i++; 
-				}
-			
-			if (counterSpeaker == m) {
-				counterSpeaker = 0;
-			} else {
-				counterSpeaker++;
-			}
-}
-
+//
+//
+////===================== Speaker =====================//
+//void Speaker(void){	
+//					if(i < 75) {
+//						m =5;	
+//					} else {
+//						if( i < 125) {
+//							m = 10;
+//						} else {
+//							if( i < 200) {
+//								m = 15;
+//							} else {
+//								if(i < 250) {
+//									m = 3;
+//								} else {
+//									if( i < 125) {
+//										m = 5;
+//									} else {
+//										if( i < 200) {
+//											m = 7;
+//										} else {
+//											if(i < 250) {
+//												m = 10;
+//											} else {
+//												i = 0;
+//											}
+//										}
+//									}
+//								}
+//							}
+//						}
+//					}
+//					
+//								
+//				if (counterSpeaker == 0 ) {
+//					SPEAKER = !SPEAKER;
+//					i++; 
+//				}
+//			
+//			if (counterSpeaker == m) {
+//				counterSpeaker = 0;
+//			} else {
+//				counterSpeaker++;
+//			}
+//}
+//
 //========================Others=====================================
 void Delay(void){	
 	int tt;
-	for(tt = 0; tt<200;tt++);
+	for(tt = 0; tt<2000;tt++);
 }
 
 
 
-//EOF-------------------------------------------------------------------------
+////EOF-------------------------------------------------------------------------
