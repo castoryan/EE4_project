@@ -78,8 +78,8 @@ const unsigned char far rom data[16][8] =
 //unsigned char far rom data[1][1];
 unsigned char FlagBlink1; 
 unsigned char FlagBlink2; 
-int counterBlink1;
-int counterBlink2;
+unsigned int counterBlink1;
+unsigned int counterBlink2;
 unsigned char LEDpos;
 
 //HEARTBEAT
@@ -251,6 +251,8 @@ void Init(void) {
 	RealScorePlayer2 = 0;
 	ScorePlayer1 = 0;
 	ScorePlayer2 = 0;
+	HRcount1 = 0;
+	HRcount2 = 0;
 
 
 	//Speaker

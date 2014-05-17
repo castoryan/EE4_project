@@ -1,5 +1,5 @@
 MPLINK 4.31, Linker
-Linker Map File - Created Sat May 17 22:26:56 2014
+Linker Map File - Created Sat May 17 22:53:37 2014
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -9,54 +9,54 @@ Linker Map File - Created Sat May 17 22:26:56 2014
       InterruptVectorHigh       code   0x000808    program   0x000006
        InterruptVectorLow       code   0x000818    program   0x000006
                    .cinit    romdata   0x00082a    program   0x000002
-             .code_main.o       code   0x00082c    program   0x0004b0
-  .code_stepper_process.o       code   0x000cdc    program   0x00036c
-      .code_adc_process.o       code   0x001048    program   0x000150
-           .code_config.o       code   0x001198    program   0x0000b4
-               _cinit_scn       code   0x00124c    program   0x00009e
-          .romdata_main.o    romdata   0x0012ea    program   0x000080
-          .code_adcopen.o       code   0x00136a    program   0x00006e
-           .code_t1open.o       code   0x0013d8    program   0x000042
-          .code_t1write.o       code   0x00141a    program   0x000038
-           .code_t0open.o       code   0x001452    program   0x000038
-         .code_adcsetch.o       code   0x00148a    program   0x00002e
-      .code_pwm_process.o       code   0x0014b8    program   0x00002a
-             _startup_scn       code   0x0014e2    program   0x00001c
-          .code_adcread.o       code   0x0014fe    program   0x000012
-                    .code       code   0x001510    program   0x00000e
-          .code_adcbusy.o       code   0x00151e    program   0x00000a
-          .code_adcconv.o       code   0x001528    program   0x000004
-           .code___init.o       code   0x00152c    program   0x000002
-         .idata_c018i.o_i    romdata   0x00152e    program   0x000000
-        .romdata___init.o    romdata   0x00152e    program   0x000000
-        .idata___init.o_i    romdata   0x00152e    program   0x000000
-         .romdata_c018i.o    romdata   0x00152e    program   0x000000
-       .romdata_t1write.o    romdata   0x00152e    program   0x000000
-       .idata_t1write.o_i    romdata   0x00152e    program   0x000000
-            .code_c018i.o       code   0x00152e    program   0x000000
-      .romdata_adcsetch.o    romdata   0x00152e    program   0x000000
-      .idata_adcsetch.o_i    romdata   0x00152e    program   0x000000
-        .idata_config.o_i    romdata   0x00152e    program   0x000000
-       .romdata_adcread.o    romdata   0x00152e    program   0x000000
-       .idata_adcread.o_i    romdata   0x00152e    program   0x000000
-        .romdata_config.o    romdata   0x00152e    program   0x000000
-        .romdata_t1open.o    romdata   0x00152e    program   0x000000
-        .idata_t1open.o_i    romdata   0x00152e    program   0x000000
-          .idata_main.o_i    romdata   0x00152e    program   0x000000
-        .romdata_t0open.o    romdata   0x00152e    program   0x000000
-        .idata_t0open.o_i    romdata   0x00152e    program   0x000000
-   .idata_pwm_process.o_i    romdata   0x00152e    program   0x000000
-       .romdata_adcopen.o    romdata   0x00152e    program   0x000000
-       .idata_adcopen.o_i    romdata   0x00152e    program   0x000000
-       .romdata_adcconv.o    romdata   0x00152e    program   0x000000
-       .idata_adcconv.o_i    romdata   0x00152e    program   0x000000
-   .romdata_pwm_process.o    romdata   0x00152e    program   0x000000
-.idata_stepper_process.o_i    romdata   0x00152e    program   0x000000
-       .romdata_adcbusy.o    romdata   0x00152e    program   0x000000
-       .idata_adcbusy.o_i    romdata   0x00152e    program   0x000000
-.romdata_stepper_process.o    romdata   0x00152e    program   0x000000
-   .romdata_adc_process.o    romdata   0x00152e    program   0x000000
-   .idata_adc_process.o_i    romdata   0x00152e    program   0x000000
+             .code_main.o       code   0x00082c    program   0x0004c0
+  .code_stepper_process.o       code   0x000cec    program   0x00036c
+      .code_adc_process.o       code   0x001058    program   0x000164
+           .code_config.o       code   0x0011bc    program   0x0000b4
+               _cinit_scn       code   0x001270    program   0x00009e
+          .romdata_main.o    romdata   0x00130e    program   0x000080
+          .code_adcopen.o       code   0x00138e    program   0x00006e
+           .code_t1open.o       code   0x0013fc    program   0x000042
+          .code_t1write.o       code   0x00143e    program   0x000038
+           .code_t0open.o       code   0x001476    program   0x000038
+         .code_adcsetch.o       code   0x0014ae    program   0x00002e
+      .code_pwm_process.o       code   0x0014dc    program   0x00002a
+             _startup_scn       code   0x001506    program   0x00001c
+          .code_adcread.o       code   0x001522    program   0x000012
+                    .code       code   0x001534    program   0x00000e
+          .code_adcbusy.o       code   0x001542    program   0x00000a
+          .code_adcconv.o       code   0x00154c    program   0x000004
+           .code___init.o       code   0x001550    program   0x000002
+         .idata_c018i.o_i    romdata   0x001552    program   0x000000
+        .romdata___init.o    romdata   0x001552    program   0x000000
+        .idata___init.o_i    romdata   0x001552    program   0x000000
+         .romdata_c018i.o    romdata   0x001552    program   0x000000
+       .romdata_t1write.o    romdata   0x001552    program   0x000000
+       .idata_t1write.o_i    romdata   0x001552    program   0x000000
+            .code_c018i.o       code   0x001552    program   0x000000
+      .romdata_adcsetch.o    romdata   0x001552    program   0x000000
+      .idata_adcsetch.o_i    romdata   0x001552    program   0x000000
+        .idata_config.o_i    romdata   0x001552    program   0x000000
+       .romdata_adcread.o    romdata   0x001552    program   0x000000
+       .idata_adcread.o_i    romdata   0x001552    program   0x000000
+        .romdata_config.o    romdata   0x001552    program   0x000000
+        .romdata_t1open.o    romdata   0x001552    program   0x000000
+        .idata_t1open.o_i    romdata   0x001552    program   0x000000
+          .idata_main.o_i    romdata   0x001552    program   0x000000
+        .romdata_t0open.o    romdata   0x001552    program   0x000000
+        .idata_t0open.o_i    romdata   0x001552    program   0x000000
+   .idata_pwm_process.o_i    romdata   0x001552    program   0x000000
+       .romdata_adcopen.o    romdata   0x001552    program   0x000000
+       .idata_adcopen.o_i    romdata   0x001552    program   0x000000
+       .romdata_adcconv.o    romdata   0x001552    program   0x000000
+       .idata_adcconv.o_i    romdata   0x001552    program   0x000000
+   .romdata_pwm_process.o    romdata   0x001552    program   0x000000
+.idata_stepper_process.o_i    romdata   0x001552    program   0x000000
+       .romdata_adcbusy.o    romdata   0x001552    program   0x000000
+       .idata_adcbusy.o_i    romdata   0x001552    program   0x000000
+.romdata_stepper_process.o    romdata   0x001552    program   0x000000
+   .romdata_adc_process.o    romdata   0x001552    program   0x000000
+   .idata_adc_process.o_i    romdata   0x001552    program   0x000000
                  .tmpdata      udata   0x000000       data   0x00000c
                 MATH_DATA      udata   0x00000c       data   0x000002
             .udata_main.o      udata   0x000060       data   0x000021
@@ -101,68 +101,68 @@ Linker Map File - Created Sat May 17 22:26:56 2014
                             0x000800    0x000805      
                             0x000808    0x00080d      
                             0x000818    0x00081d      
-                            0x00082a    0x00152d      
-            3356 out of 33048 program addresses used, program memory utilization is 10%
+                            0x00082a    0x001551      
+            3392 out of 33048 program addresses used, program memory utilization is 10%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-              ADC_Process   0x00106a    program     extern D:\GitHub\EE4_project\adc_process.c
-                  BusyADC   0x00151e    program     extern C:\MCC18\src\pmc_common\ADC\adcbusy.c
-              ButtonCheck   0x000904    program     extern D:\GitHub\EE4_project\main.c
-               ConvertADC   0x001528    program     extern C:\MCC18\src\pmc_common\ADC\adcconv.c
-                    Delay   0x000c96    program     extern D:\GitHub\EE4_project\main.c
-            HeartBeatGame   0x000b96    program     extern D:\GitHub\EE4_project\main.c
+              ADC_Process   0x00108e    program     extern D:\GitHub\EE4_project\adc_process.c
+                  BusyADC   0x001542    program     extern C:\MCC18\src\pmc_common\ADC\adcbusy.c
+              ButtonCheck   0x000914    program     extern D:\GitHub\EE4_project\main.c
+               ConvertADC   0x00154c    program     extern C:\MCC18\src\pmc_common\ADC\adcconv.c
+                    Delay   0x000ca6    program     extern D:\GitHub\EE4_project\main.c
+            HeartBeatGame   0x000ba6    program     extern D:\GitHub\EE4_project\main.c
                      Init   0x0008b2    program     extern D:\GitHub\EE4_project\main.c
-         Init_ADC_Process   0x001048    program     extern D:\GitHub\EE4_project\adc_process.c
-         Init_PWM_Process   0x0014b8    program     extern D:\GitHub\EE4_project\pwm_process.c
-     Init_Stepper_Process   0x000cdc    program     extern D:\GitHub\EE4_project\stepper_process.c
-          Init_Timer_Loop   0x001198    program     extern D:\GitHub\EE4_project\config.c
+         Init_ADC_Process   0x001058    program     extern D:\GitHub\EE4_project\adc_process.c
+         Init_PWM_Process   0x0014dc    program     extern D:\GitHub\EE4_project\pwm_process.c
+     Init_Stepper_Process   0x000cec    program     extern D:\GitHub\EE4_project\stepper_process.c
+          Init_Timer_Loop   0x0011bc    program     extern D:\GitHub\EE4_project\config.c
       InterruptVectorHigh   0x000808    program     extern D:\GitHub\EE4_project\config.c
        InterruptVectorLow   0x000818    program     extern D:\GitHub\EE4_project\config.c
-        Interrupt_Handler   0x0011b0    program     extern D:\GitHub\EE4_project\config.c
-              LED_All_Off   0x00092a    program     extern D:\GitHub\EE4_project\main.c
-           LED_Blink_Left   0x000b1e    program     extern D:\GitHub\EE4_project\main.c
-          LED_Blink_Right   0x000b5a    program     extern D:\GitHub\EE4_project\main.c
-            LED_Left_Four   0x0009e8    program     extern D:\GitHub\EE4_project\main.c
-               LED_Number   0x000958    program     extern D:\GitHub\EE4_project\main.c
-           LED_Right_Four   0x000a88    program     extern D:\GitHub\EE4_project\main.c
-                  OpenADC   0x00136a    program     extern C:\MCC18\src\pmc_common\ADC\adcopen.c
-               OpenTimer0   0x001452    program     extern C:\MCC18\src\pmc_common\Timers\t0open.c
-               OpenTimer1   0x0013d8    program     extern C:\MCC18\src\pmc_common\Timers\t1open.c
-              PWM_Process   0x0014c6    program     extern D:\GitHub\EE4_project\pwm_process.c
-                  ReadADC   0x0014fe    program     extern C:\MCC18\src\pmc_common\ADC\adcread.c
-               SetChanADC   0x00148a    program     extern C:\MCC18\src\pmc_common\ADC\adcsetch.c
-          Stepper_Process   0x000d68    program     extern D:\GitHub\EE4_project\stepper_process.c
-             Stepper_Step   0x000fb0    program     extern D:\GitHub\EE4_project\stepper_process.c
-                     Wait   0x0011a4    program     extern D:\GitHub\EE4_project\config.c
-              WriteTimer1   0x00141a    program     extern C:\MCC18\src\pmc_common\Timers\t1write.c
+        Interrupt_Handler   0x0011d4    program     extern D:\GitHub\EE4_project\config.c
+              LED_All_Off   0x00093a    program     extern D:\GitHub\EE4_project\main.c
+           LED_Blink_Left   0x000b2e    program     extern D:\GitHub\EE4_project\main.c
+          LED_Blink_Right   0x000b6a    program     extern D:\GitHub\EE4_project\main.c
+            LED_Left_Four   0x0009f8    program     extern D:\GitHub\EE4_project\main.c
+               LED_Number   0x000968    program     extern D:\GitHub\EE4_project\main.c
+           LED_Right_Four   0x000a98    program     extern D:\GitHub\EE4_project\main.c
+                  OpenADC   0x00138e    program     extern C:\MCC18\src\pmc_common\ADC\adcopen.c
+               OpenTimer0   0x001476    program     extern C:\MCC18\src\pmc_common\Timers\t0open.c
+               OpenTimer1   0x0013fc    program     extern C:\MCC18\src\pmc_common\Timers\t1open.c
+              PWM_Process   0x0014ea    program     extern D:\GitHub\EE4_project\pwm_process.c
+                  ReadADC   0x001522    program     extern C:\MCC18\src\pmc_common\ADC\adcread.c
+               SetChanADC   0x0014ae    program     extern C:\MCC18\src\pmc_common\ADC\adcsetch.c
+          Stepper_Process   0x000d78    program     extern D:\GitHub\EE4_project\stepper_process.c
+             Stepper_Step   0x000fc0    program     extern D:\GitHub\EE4_project\stepper_process.c
+                     Wait   0x0011c8    program     extern D:\GitHub\EE4_project\config.c
+              WriteTimer1   0x00143e    program     extern C:\MCC18\src\pmc_common\Timers\t1write.c
        ___return_lbl00000   0x000004    program     static                          
        ___return_lbl00000   0x000804    program     static                          
        ___return_lbl00001   0x00080c    program     static                          
-       ___return_lbl00001   0x0014fc    program     static                          
+       ___return_lbl00001   0x001520    program     static                          
        ___return_lbl00002   0x00081c    program     static                          
-       ___return_lbl00002   0x0012e8    program     static                          
-       ___return_lbl00004   0x0011ae    program     static                          
-        ___while_lbl00005   0x0011a4    program     static                          
-        ___while_lbl00006   0x0011ac    program     static                          
-                   __init   0x00152c    program     extern C:\MCC18\src\traditional\stdclib\__init.c
-            __zero_memory   0x001510    program     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                _do_cinit   0x00124c    program     extern C:\MCC18\src\traditional\startup\c018i.c
+       ___return_lbl00002   0x00130c    program     static                          
+       ___return_lbl00004   0x0011d2    program     static                          
+        ___while_lbl00005   0x0011c8    program     static                          
+        ___while_lbl00006   0x0011d0    program     static                          
+                   __init   0x001550    program     extern C:\MCC18\src\traditional\stdclib\__init.c
+            __zero_memory   0x001534    program     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                _do_cinit   0x001270    program     extern C:\MCC18\src\traditional\startup\c018i.c
                    _entry   0x000000    program     extern C:\MCC18\src\traditional\startup\c018i.c
                    _reset   0x000800    program     extern D:\GitHub\EE4_project\config.c
-                 _startup   0x0014e2    program     extern C:\MCC18\src\traditional\startup\c018i.c
-               clear_loop   0x001516    program     static C:\MCC18\src\traditional\proc\p18F2550.asm
-                copy_loop   0x0012be    program     static                          
-            copy_one_byte   0x0012c4    program     static                          
-                     data   0x0012ea    program     extern D:\GitHub\EE4_project\main.c
-                     done   0x0012e8    program     static                          
-             done_copying   0x0012d2    program     static                          
-                     loop   0x0014f2    program     static                          
+                 _startup   0x001506    program     extern C:\MCC18\src\traditional\startup\c018i.c
+               clear_loop   0x00153a    program     static C:\MCC18\src\traditional\proc\p18F2550.asm
+                copy_loop   0x0012e2    program     static                          
+            copy_one_byte   0x0012e8    program     static                          
+                     data   0x00130e    program     extern D:\GitHub\EE4_project\main.c
+                     done   0x00130c    program     static                          
+             done_copying   0x0012f6    program     static                          
+                     loop   0x001516    program     static                          
                      main   0x00082c    program     extern D:\GitHub\EE4_project\main.c
-                     test   0x001266    program     static                          
+                     test   0x00128a    program     static                          
                    ADCON0   0x000fc2       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                ADCON0bits   0x000fc2       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    ADCON1   0x000fc1       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
@@ -441,50 +441,50 @@ Linker Map File - Created Sat May 17 22:26:56 2014
        ___return_lbl00002   0x00081c    program     static                          
                      main   0x00082c    program     extern D:\GitHub\EE4_project\main.c
                      Init   0x0008b2    program     extern D:\GitHub\EE4_project\main.c
-              ButtonCheck   0x000904    program     extern D:\GitHub\EE4_project\main.c
-              LED_All_Off   0x00092a    program     extern D:\GitHub\EE4_project\main.c
-               LED_Number   0x000958    program     extern D:\GitHub\EE4_project\main.c
-            LED_Left_Four   0x0009e8    program     extern D:\GitHub\EE4_project\main.c
-           LED_Right_Four   0x000a88    program     extern D:\GitHub\EE4_project\main.c
-           LED_Blink_Left   0x000b1e    program     extern D:\GitHub\EE4_project\main.c
-          LED_Blink_Right   0x000b5a    program     extern D:\GitHub\EE4_project\main.c
-            HeartBeatGame   0x000b96    program     extern D:\GitHub\EE4_project\main.c
-                    Delay   0x000c96    program     extern D:\GitHub\EE4_project\main.c
-     Init_Stepper_Process   0x000cdc    program     extern D:\GitHub\EE4_project\stepper_process.c
-          Stepper_Process   0x000d68    program     extern D:\GitHub\EE4_project\stepper_process.c
-             Stepper_Step   0x000fb0    program     extern D:\GitHub\EE4_project\stepper_process.c
-         Init_ADC_Process   0x001048    program     extern D:\GitHub\EE4_project\adc_process.c
-              ADC_Process   0x00106a    program     extern D:\GitHub\EE4_project\adc_process.c
-          Init_Timer_Loop   0x001198    program     extern D:\GitHub\EE4_project\config.c
-        ___while_lbl00005   0x0011a4    program     static                          
-                     Wait   0x0011a4    program     extern D:\GitHub\EE4_project\config.c
-        ___while_lbl00006   0x0011ac    program     static                          
-       ___return_lbl00004   0x0011ae    program     static                          
-        Interrupt_Handler   0x0011b0    program     extern D:\GitHub\EE4_project\config.c
-                _do_cinit   0x00124c    program     extern C:\MCC18\src\traditional\startup\c018i.c
-                     test   0x001266    program     static                          
-                copy_loop   0x0012be    program     static                          
-            copy_one_byte   0x0012c4    program     static                          
-             done_copying   0x0012d2    program     static                          
-       ___return_lbl00002   0x0012e8    program     static                          
-                     done   0x0012e8    program     static                          
-                     data   0x0012ea    program     extern D:\GitHub\EE4_project\main.c
-                  OpenADC   0x00136a    program     extern C:\MCC18\src\pmc_common\ADC\adcopen.c
-               OpenTimer1   0x0013d8    program     extern C:\MCC18\src\pmc_common\Timers\t1open.c
-              WriteTimer1   0x00141a    program     extern C:\MCC18\src\pmc_common\Timers\t1write.c
-               OpenTimer0   0x001452    program     extern C:\MCC18\src\pmc_common\Timers\t0open.c
-               SetChanADC   0x00148a    program     extern C:\MCC18\src\pmc_common\ADC\adcsetch.c
-         Init_PWM_Process   0x0014b8    program     extern D:\GitHub\EE4_project\pwm_process.c
-              PWM_Process   0x0014c6    program     extern D:\GitHub\EE4_project\pwm_process.c
-                 _startup   0x0014e2    program     extern C:\MCC18\src\traditional\startup\c018i.c
-                     loop   0x0014f2    program     static                          
-       ___return_lbl00001   0x0014fc    program     static                          
-                  ReadADC   0x0014fe    program     extern C:\MCC18\src\pmc_common\ADC\adcread.c
-            __zero_memory   0x001510    program     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-               clear_loop   0x001516    program     static C:\MCC18\src\traditional\proc\p18F2550.asm
-                  BusyADC   0x00151e    program     extern C:\MCC18\src\pmc_common\ADC\adcbusy.c
-               ConvertADC   0x001528    program     extern C:\MCC18\src\pmc_common\ADC\adcconv.c
-                   __init   0x00152c    program     extern C:\MCC18\src\traditional\stdclib\__init.c
+              ButtonCheck   0x000914    program     extern D:\GitHub\EE4_project\main.c
+              LED_All_Off   0x00093a    program     extern D:\GitHub\EE4_project\main.c
+               LED_Number   0x000968    program     extern D:\GitHub\EE4_project\main.c
+            LED_Left_Four   0x0009f8    program     extern D:\GitHub\EE4_project\main.c
+           LED_Right_Four   0x000a98    program     extern D:\GitHub\EE4_project\main.c
+           LED_Blink_Left   0x000b2e    program     extern D:\GitHub\EE4_project\main.c
+          LED_Blink_Right   0x000b6a    program     extern D:\GitHub\EE4_project\main.c
+            HeartBeatGame   0x000ba6    program     extern D:\GitHub\EE4_project\main.c
+                    Delay   0x000ca6    program     extern D:\GitHub\EE4_project\main.c
+     Init_Stepper_Process   0x000cec    program     extern D:\GitHub\EE4_project\stepper_process.c
+          Stepper_Process   0x000d78    program     extern D:\GitHub\EE4_project\stepper_process.c
+             Stepper_Step   0x000fc0    program     extern D:\GitHub\EE4_project\stepper_process.c
+         Init_ADC_Process   0x001058    program     extern D:\GitHub\EE4_project\adc_process.c
+              ADC_Process   0x00108e    program     extern D:\GitHub\EE4_project\adc_process.c
+          Init_Timer_Loop   0x0011bc    program     extern D:\GitHub\EE4_project\config.c
+        ___while_lbl00005   0x0011c8    program     static                          
+                     Wait   0x0011c8    program     extern D:\GitHub\EE4_project\config.c
+        ___while_lbl00006   0x0011d0    program     static                          
+       ___return_lbl00004   0x0011d2    program     static                          
+        Interrupt_Handler   0x0011d4    program     extern D:\GitHub\EE4_project\config.c
+                _do_cinit   0x001270    program     extern C:\MCC18\src\traditional\startup\c018i.c
+                     test   0x00128a    program     static                          
+                copy_loop   0x0012e2    program     static                          
+            copy_one_byte   0x0012e8    program     static                          
+             done_copying   0x0012f6    program     static                          
+       ___return_lbl00002   0x00130c    program     static                          
+                     done   0x00130c    program     static                          
+                     data   0x00130e    program     extern D:\GitHub\EE4_project\main.c
+                  OpenADC   0x00138e    program     extern C:\MCC18\src\pmc_common\ADC\adcopen.c
+               OpenTimer1   0x0013fc    program     extern C:\MCC18\src\pmc_common\Timers\t1open.c
+              WriteTimer1   0x00143e    program     extern C:\MCC18\src\pmc_common\Timers\t1write.c
+               OpenTimer0   0x001476    program     extern C:\MCC18\src\pmc_common\Timers\t0open.c
+               SetChanADC   0x0014ae    program     extern C:\MCC18\src\pmc_common\ADC\adcsetch.c
+         Init_PWM_Process   0x0014dc    program     extern D:\GitHub\EE4_project\pwm_process.c
+              PWM_Process   0x0014ea    program     extern D:\GitHub\EE4_project\pwm_process.c
+                 _startup   0x001506    program     extern C:\MCC18\src\traditional\startup\c018i.c
+                     loop   0x001516    program     static                          
+       ___return_lbl00001   0x001520    program     static                          
+                  ReadADC   0x001522    program     extern C:\MCC18\src\pmc_common\ADC\adcread.c
+            __zero_memory   0x001534    program     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+               clear_loop   0x00153a    program     static C:\MCC18\src\traditional\proc\p18F2550.asm
+                  BusyADC   0x001542    program     extern C:\MCC18\src\pmc_common\ADC\adcbusy.c
+               ConvertADC   0x00154c    program     extern C:\MCC18\src\pmc_common\ADC\adcconv.c
+                   __init   0x001550    program     extern C:\MCC18\src\traditional\stdclib\__init.c
                   __tmp_0   0x000000       data     static D:\GitHub\EE4_project\stepper_process.c
                   __tmp_0   0x000000       data     static D:\GitHub\EE4_project\main.c
                   __tmp_0   0x000000       data     static C:\MCC18\src\pmc_common\ADC\adcsetch.c

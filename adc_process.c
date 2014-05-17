@@ -68,6 +68,12 @@ void Init_ADC_Process() {
 								 * ADC_4ANA    analog:AN0-AN3
 								 * ADC_5ANA    analog:AN0-AN4
 								 */
+
+	ADCState = 0;
+	analogInput_0 = 0;
+	analogInput_1 = 0;
+	analogInput_3 = 0;
+	analogInput_4 = 0;
 }	
 
 /********************************************************************
