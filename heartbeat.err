@@ -1,0 +1,14 @@
+Error[1105] C:\Users\Administrator\Desktop\led\heartbeat.c 94 : symbol 'LEDpos' has not been defined
+Error[1105] C:\Users\Administrator\Desktop\led\heartbeat.c 94 : symbol 'LEDpos' has not been defined
+Error[1105] C:\Users\Administrator\Desktop\led\heartbeat.c 96 : symbol 'LEDpos' has not been defined
+Error[1101] C:\Users\Administrator\Desktop\led\heartbeat.c 96 : lvalue required
+Error[1105] C:\Users\Administrator\Desktop\led\heartbeat.c 97 : symbol 'LEDpos' has not been defined
+Warning[2058] C:\Users\Administrator\Desktop\led\heartbeat.c 97 : call of function without prototype
+Error[1105] C:\Users\Administrator\Desktop\led\heartbeat.c 101 : symbol 'LEDpos' has not been defined
+Warning[2058] C:\Users\Administrator\Desktop\led\heartbeat.c 101 : call of function without prototype
+Error[1105] C:\Users\Administrator\Desktop\led\heartbeat.c 101 : symbol 'Winner' has not been defined
+Error[1101] C:\Users\Administrator\Desktop\led\heartbeat.c 101 : lvalue required
+Error[1105] C:\Users\Administrator\Desktop\led\heartbeat.c 102 : symbol 'LEDpos' has not been defined
+Warning[2058] C:\Users\Administrator\Desktop\led\heartbeat.c 102 : call of function without prototype
+Error[1105] C:\Users\Administrator\Desktop\led\heartbeat.c 102 : symbol 'Winner' has not been defined
+Error[1101] C:\Users\Administrator\Desktop\led\heartbeat.c 102 : lvalue required

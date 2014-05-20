@@ -29,7 +29,8 @@
 #include "adc_process.h"
 #include "pwm_process.h"
 #include "stepper_process.h"
-
+#include "led.h"
+#include "speaker.h"
 
 
 #define Button2 PORTBbits.RB7
@@ -37,50 +38,19 @@
 
 #define LED2 LATCbits.LATC1 	
 
-//#define SPEAKER LATAbits.LATA4
+#define SPEAKER LATAbits.LATA2
+//** V A R I A B L E S ********************************************************/
 
-///** V A R I A B L E S ********************************************************/
+
 unsigned char State;
 unsigned char Winner;
-
+int flag1;
+int flag2;
 
 //Button
 long int ButtonCount;
 
 
-
-////SPEAKER
-//unsigned char counterSpeaker;
-//int i;
-//int m;
-
-
-//LED
-const unsigned char far rom data[16][8] = 
-{
-{0,0,0,1,0,0,0,1},		//  Light0
-{0,0,0,1,0,0,1,0},		//  Light1
-{0,0,0,1,0,1,0,0},		//  Light2
-{0,0,0,1,1,0,0,0},		//  Light3
-{0,0,1,0,0,0,0,1},		//  Light4
-{0,0,1,0,0,0,1,0},		//  Light5
-{0,0,1,0,0,1,0,0},		//  Light6
-{0,0,1,0,1,0,0,0},		//  Light7
-{0,1,0,0,0,0,1,0},		//  Light8
-{0,1,0,0,0,1,0,0},		//  Light9
-{0,1,0,0,1,0,0,0},		//  Light10
-{1,0,0,0,0,0,0,1},		//  Light11
-{1,0,0,0,0,0,1,0},		//  Light12
-{1,0,0,0,0,1,0,0},		//  Light13
-{1,0,0,0,1,0,0,0},		//  Light14
-{0,1,0,0,0,0,0,1}		//  Light15
-};
-//unsigned char far rom data[1][1];
-unsigned char FlagBlink1; 
-unsigned char FlagBlink2; 
-unsigned int counterBlink1;
-unsigned int counterBlink2;
-unsigned char LEDpos;
 
 //HEARTBEAT
 long int HRcount1;
@@ -92,6 +62,20 @@ short int RealScorePlayer2;
 short int Player1HR;
 short int Player2HR;
 
+//EEG
+
+int P1a;
+int P2a;
+int P1b;
+int P2b;
+int P1c;
+int P2c;
+unsigned char P1peak; // value of peak.
+unsigned char P2peak; // value op peak. 
+signed char eegdiff; // difference between eeg1b and eeg2b.
+unsigned char eegpointsP1;
+unsigned char eegpointsP2;
+
 
 /** P R I V A T E  P R O T O T Y P E S ***************************************/
 void Init(void);
@@ -99,23 +83,16 @@ void Init(void);
 //Button
 void ButtonCheck(void);
 
-//LED
-void LED_All_Off(void);
-void LED_Number(unsigned char);
-void LED_HRGame(void);
-void LED_Blink_Left(void);
-void LED_Blink_Right(void);
-
 
 //HeartRate
 void HeartBeatGame(void);
 
-//Speaker
-void Speaker(void);
+//EEG
+void EEG_Game(void);
 
 
 //Others
-void Delay(void);
+void Delayms(int);
 
 /** D E C L A R A T I O N S **************************************************/
 /******************************************************************************
@@ -139,60 +116,86 @@ Init();						//initialise the system
 
 		if(Button1 == 1)
 		{
-			ButtonCount = 0;
-//		switch(State%4)
-//		{ 
-//			case 0:		break;
-//			case 1:		break;
-//			case 2:		break;
-//			case 3:		break;
-//		}
-
-			if(State%4 == 0)
-			{
+		
+		ButtonCount = 0;
+		switch(State%6)
+		{ 
+			case 0:	
 				Init();	
-				LED_All_Off();
-				
-			}
-			if(State%4 == 1)
-			{
+				LED_Number(15);	
+				break;
+			
+			case 1:
+				//Stepmotor_Right();
 				LED2 = 1;
-				LED_Number(15);
-				LED_Number(7);
-			}
-			if(State%4 == 2)
-			{	
-				LED2 = 0;
-				LED_Blink_Left();
-			}
-			if(State%4 == 3)
-			{	
-				
-				
+				Speaker_Song2();
+				LED_AllLedsBlink();
+
+				break;
+			case 2:		
+				LED_AllLedsBlinkSpeedUp();				
+				//LED2 = 0;
+				//LED_leftFourLedsBlink();
+				Speaker_Song3();
+				//LED_allLedsGoReverseFast();
+				//Stepmotor_Left();
+							//Wait();
+				break;
+			case 3:					
 				if(Winner  == 0 ){
 					LED2 = 1;
 					HeartBeatGame();
 				};
-				if(Winner  == 1 ){LED_Blink_Right();};
-				if(Winner  == 2 ){LED_Blink_Left();};
-			}
+				if(Winner  == 1 ){LED2 = 0;LED_rightFourLedsBlink();};
+				if(Winner  == 2 ){LED2 = 0;LED_leftFourLedsBlink();};	
+
+				break;
+			case 4:
+				LED_allLedsGoFast();
+				Speaker_Song1();
+//				if(Winner  == 0 ){
+//					LED2 = 1;
+//					EEG_Game();
+//				}
+			//	if(Winner  == 1 ){LED_rightFourLedsBlink();}
+			//	if(Winner  == 2 ){LED_leftFourLedsBlink();}
+				break;
+			case 5:
+				LED_allLedsGo();
+				break;
+		}
+//
+//			if(State%4 == 0)
+//			{
+//				
+//				
+//			}
+//			if(State%4 == 1)
+//			{
+//				
+//			}
+//			if(State%4 == 2)
+//			{		
+//				
+//			}
+//			if(State%4 == 3)
+//			{		
+//
+//			}
+////			if(State%5 == 4)
+//			{	
+//				
+//			}
+//			
 
 		}
-		
-
-//		if(Player1HR >500)
-//		{LED2 = 1;}
-//		else
-//		{LED2 = 0;}
-
-
 
 		ADC_Process();		//execute one step in the ADC prosess
 		Player1HR = analogInput_0;
 		Player2HR = analogInput_1;
-//		Wait();				//wait until one 1m has elapesed
 //		PWM_Process();		//execute one step in the PWM prosess
-//		Stepper_Step(0, 1);	//Asks the Stepper_Process to turn the motor 1 step CW
+		//Stepper_Step(0, 1);	//Asks the Stepper_Process to turn the motor 1 step CW	
+		//Stepper_Process();
 		Wait();				//wait until one 1m has elapesed
 	}
 }
@@ -220,29 +223,17 @@ void Init(void) {
 	TRISCbits.TRISC6 = 1;
 	TRISBbits.TRISB7 = 1;	
 
-	//LED
-	TRISBbits.TRISB4 = 0;
-	LATBbits.LATB4 = 0;
 
-   	TRISBbits.TRISB5 = 0;		
-	LATBbits.LATB5 = 0;
-    
-	TRISBbits.TRISB6 = 0;
-	LATBbits.LATB6 = 0;
-	
-//Variables
+   //Variables
 	State = 0;
 	Winner = 0;
+	flag1 = 0;
+	flag2 = 0;
+	PreLEDpos = 7;
 
 	//Button
 	ButtonCount = 0;
 
-	//LED
-	FlagBlink1 = 0;
-	FlagBlink2 = 0;
-	counterBlink1 = 0;
-	counterBlink2 = 0;
-	LEDpos = 7;
 
   	//HeartRate
 	Player1HR = 0;
@@ -255,24 +246,16 @@ void Init(void) {
 	HRcount2 = 0;
 
 
-	//Speaker
-//	counterSpeaker = 0;
-//	i=0; 
+    Init_LED();
+	Init_Speaker();
 
-
-
-	
 	Init_Timer_Loop();			
 //	Init_PWM_Process();		//initialise the PWM module
 	Init_ADC_Process();		//initialise the A/D module
-//	Init_Stepper_Process();	//initialise the Stepper module
+	Init_Stepper_Process();	//initialise the Stepper module
 }
 
-
-
 //===================== Button =====================//
-
-
 void ButtonCheck(void){
 		
 		if(Button1 == 0)						//
@@ -286,118 +269,16 @@ void ButtonCheck(void){
 }
 
 
-
-
-//======================== LED =========================//
-
-void LED_All_Off(void){
-
-	unsigned char j;
-	LATBbits.LATB6 = 0;
-	Wait();		
-  	for(j=0;j<8;j++){
-		LATBbits.LATB4 = 0;
-	    LATBbits.LATB5 = 0;
-		LATBbits.LATB4 = 1; 
-	}	
-	LATBbits.LATB6 = 1;	
-}
-
-void LED_Number(unsigned char d){
-	unsigned char j;
-	LATBbits.LATB6 = 0;
-	Wait();
-	for(j=0;j<8;j++){
-		LATBbits.LATB4 = 0;
-		LATBbits.LATB5 = data[d][j];
-		LATBbits.LATB4 = 1; 
-	}	
-	LATBbits.LATB6 = 1;        
-}
-
-
-void LED_Left_Four(void){
-  unsigned char firstFour[8] = {0,0,0,1,1,1,1,1};
-  unsigned char j;
-  LATBbits.LATB6 = 0;     
-  Wait();
-		for(j=0;j<8;j++)
-		{
-			LATBbits.LATB4 = 0;
-	     	LATBbits.LATB5 = firstFour[j];
-			LATBbits.LATB4 = 1; 
-		}	
-			LATBbits.LATB6 = 1;	
-}
-
-void LED_Right_Four(void){
-  unsigned char firstFour[8] = {0,1,0,1,1,0,0,1};
-  unsigned char j;
-  LATBbits.LATB6 = 0;     
-  Wait();
-		for(j=0;j<8;j++)
-		{
-			LATBbits.LATB4 = 0;
-	     	LATBbits.LATB5 = firstFour[j];
-			LATBbits.LATB4 = 1; 
-		}	
-			LATBbits.LATB6 = 1;	
-}
-
-void LED_Blink_Left(void){
-		
-// the first four leds blink to show it's HR game and sLed Off
-		if(counterBlink1 == 0) {			
-			if(FlagBlink1 == 0){			
-			    LED_Left_Four();   //four Leds on
-			}
-			if(FlagBlink1 == 1){
-		    	LED_All_Off();  //four Leds off
-			}
-		}
-
-		if (counterBlink1 == 1000) {				//blink for 1s
-			counterBlink1 = 0;
-			FlagBlink1++;
-            if(FlagBlink1 > 1){FlagBlink1 = 0;}
-		} 
-		else {
-			counterBlink1++;
-		}
-}
-
-void LED_Blink_Right(void){
-		
-// the first four leds blink to show it's HR game and sLed Off
-		if(counterBlink2 == 0) {			
-			if(FlagBlink2 == 0){			
-			    LED_Right_Four();   //four Leds on
-			}
-			if(FlagBlink2 == 1){
-		    	LED_All_Off();  //four Leds off
-			}
-		}
-
-		if (counterBlink2 == 1000) {				//blink for 1s
-			counterBlink2 = 0;
-			FlagBlink2++;
-            if(FlagBlink2 > 1){FlagBlink2 = 0;}
-		} 
-		else {
-			counterBlink2++;
-		}
-}
-
 //===================== HeartBeat =====================//
 void HeartBeatGame(void){
     
 
 	if(Player1HR >500)
-	{	HRcount1++;   LED2 = 1;  }
+	{	HRcount1++;   }
 	else
-	{	HRcount1 = 0; LED2 = 0; }
+	{	HRcount1 = 0; }
 
-	if(Player2HR >500)
+	if(Player2HR >530)
 	{	HRcount2++;   }
 	else
 	{   HRcount2 = 0; }
@@ -425,7 +306,14 @@ void HeartBeatGame(void){
 	if(LEDpos > 0 && LEDpos < 14)
 	{
 		LEDpos = ScorePlayer2 - ScorePlayer1 + 7;
-		LED_Number(LEDpos);	
+		LED_Number(LEDpos);
+		if(PreLEDpos < LEDpos){flag1 = 1;flag2 = 0;}
+		if(PreLEDpos > LEDpos){flag2 = 1;flag1 = 0;}
+		
+		if(flag1 == 1&&flag2 == 0){Stepper_Step(0, 0);}
+		if(flag2 == 1&&flag1 == 0){Stepper_Step(0, 1);}
+			
+		PreLEDpos = LEDpos;
 	}
 	else
 	{
@@ -434,57 +322,130 @@ void HeartBeatGame(void){
 	}
 
 }
+
+//=========================EEG=======================================
+
+void EEG_Game(void){
+
+/**** Player 1 EEG code****/
+
+// P1a newest value n
+// P1b old value n-1
+// P1c oldest value n-2
+
+
+P1a = analogInput_3;
+
+if (P1c < P1b && P1a < P1b)
+{
+P1peak = P1b;
+}
+P1c = P1b;
+P1b = P1a;
+
+
+
+/**** Player 2 EEG code****/
+
+P2a = analogInput_4;
+
+if (P2c < P2b && P2a < P2b)
+{
+P2peak = P2b;
+}
+P2c = P2b;
+P2b = P2a;
+
+/**** Comparison between P1 and P2 peakvalues code****/
+
+eegdiff = P1peak - P2peak;
+if (eegdiff > 0) // if P1 has a higher peak voltage then P2
+
+{
+/***check to see how much higher te peakvoltage is and assign points accordingly***/
+
+/**** game highest alpha waves score points*****/
+
+ if (eegdiff > 5)
+ {
+   eegpointsP1 += 5;
+ }
+ else if (eegdiff >4)
+ {
+   eegpointsP1 += 4;
+ }
+ else if (eegdiff >3)
+ {
+    eegpointsP1 += 3;
+ }
+ else if (eegdiff >2)
+ { 
+    eegpointsP1 += 2;
+ }
+ else if (eegdiff >1)
+ {
+    eegpointsP1 += 1;
+ }
+ else
+ {}
+}
+else  // if P2 has a higher peak voltage then P1
+
+{
+eegdiff = -eegdiff;
+
+/***check to see how much higher te peakvoltage is and assign points accordingly***/
+
+ if (eegdiff > 5)
+ {
+   eegpointsP2 += 5;
+ }
+ else if (eegdiff >4)
+ {
+   eegpointsP2 += 4;
+ }
+ else if (eegdiff >3)
+ {
+    eegpointsP2 += 3;
+ }
+ else if (eegdiff >2)
+ { 
+    eegpointsP2 += 2;
+ }
+ else if (eegdiff >1)
+ {
+    eegpointsP2 += 1;
+ }
+ else
+ {}
+}
+
+/******Points*******/
+if (eegpointsP1 >= 10)
+{
+eegpointsP1 -= 10;
+// score a game point , led steps , stepper steps.
+}
+if (eegpointsP2 >= 10)
+{
+eegpointsP2 -= 10;
+// score a game point , led steps , stepper steps.
+
+
+}
+}
+
 //
-//
-////===================== Speaker =====================//
-//void Speaker(void){	
-//					if(i < 75) {
-//						m =5;	
-//					} else {
-//						if( i < 125) {
-//							m = 10;
-//						} else {
-//							if( i < 200) {
-//								m = 15;
-//							} else {
-//								if(i < 250) {
-//									m = 3;
-//								} else {
-//									if( i < 125) {
-//										m = 5;
-//									} else {
-//										if( i < 200) {
-//											m = 7;
-//										} else {
-//											if(i < 250) {
-//												m = 10;
-//											} else {
-//												i = 0;
-//											}
-//										}
-//									}
-//								}
-//							}
-//						}
-//					}
-//					
-//								
-//				if (counterSpeaker == 0 ) {
-//					SPEAKER = !SPEAKER;
-//					i++; 
-//				}
-//			
-//			if (counterSpeaker == m) {
-//				counterSpeaker = 0;
-//			} else {
-//				counterSpeaker++;
-//			}
-//}
-//
+
+
+
 //========================Others=====================================
-void Delay(void){	
+void Delayms(int ms){	
 	int tt;
-	for(tt = 0; tt<2000;tt++);
+	for(tt = 0; tt<ms;tt++)
+	{
+		Wait();
+		}
 }
 
 

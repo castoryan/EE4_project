@@ -9,7 +9,7 @@
  * Compiler:        C18 2.30+
  * Company:         KULeuven - GROUPT
  *
- * THIS SOFTWARE IS PROVIDED IN AN “AS IS” CONDITION. NO WARRANTIES,
+ * THIS SOFTWARE IS PROVIDED IN AN “AS IS?CONDITION. NO WARRANTIES,
  * WHETHER EXPRESS, IMPLIED OR STATUTORY, INCLUDING, BUT NOT LIMITED
  * TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
  * PARTICULAR PURPOSE APPLY TO THIS SOFTWARE. THE COMPANY SHALL NOT,
@@ -62,7 +62,7 @@ void Init_Stepper_Process() {
 	OpenTimer1( TIMER_INT_ON 	&
             	T1_16BIT_RW 	&
 				T1_SOURCE_INT 	&
-				T1_PS_1_1		&
+				T1_PS_1_4		&
 				T1_OSC1EN_OFF	&
 				T1_SYNC_EXT_OFF );
 	INTCONbits.GIE = 1;
@@ -89,7 +89,7 @@ void Stepper_Process() {
 				stepper[i].sequence	= 0x06;
 			} else if (stepper[i].sequence == 0x60) {
 				stepper[i].sequence	= 0x00;
-				stepper[i].status == STOP;
+				stepper[i].status = STOP;
 			} else {
 				stepper[i].sequence <<= 1;	
 			}
@@ -98,7 +98,7 @@ void Stepper_Process() {
 				stepper[i].sequence	= 0x60;
 			} else if (stepper[i].sequence == 0x06) {
 				stepper[i].sequence	= 0x00;
-				stepper[i].status == STOP;
+				stepper[i].status = STOP;
 			} else {
 				stepper[i].sequence >>= 1;
 			}

@@ -1,5 +1,5 @@
 MPLINK 4.31, Linker
-Linker Map File - Created Sat May 17 22:53:37 2014
+Linker Map File - Created Tue May 20 08:26:26 2014
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -9,86 +9,101 @@ Linker Map File - Created Sat May 17 22:53:37 2014
       InterruptVectorHigh       code   0x000808    program   0x000006
        InterruptVectorLow       code   0x000818    program   0x000006
                    .cinit    romdata   0x00082a    program   0x000002
-             .code_main.o       code   0x00082c    program   0x0004c0
-  .code_stepper_process.o       code   0x000cec    program   0x00036c
-      .code_adc_process.o       code   0x001058    program   0x000164
-           .code_config.o       code   0x0011bc    program   0x0000b4
-               _cinit_scn       code   0x001270    program   0x00009e
-          .romdata_main.o    romdata   0x00130e    program   0x000080
-          .code_adcopen.o       code   0x00138e    program   0x00006e
-           .code_t1open.o       code   0x0013fc    program   0x000042
-          .code_t1write.o       code   0x00143e    program   0x000038
-           .code_t0open.o       code   0x001476    program   0x000038
-         .code_adcsetch.o       code   0x0014ae    program   0x00002e
-      .code_pwm_process.o       code   0x0014dc    program   0x00002a
-             _startup_scn       code   0x001506    program   0x00001c
-          .code_adcread.o       code   0x001522    program   0x000012
-                    .code       code   0x001534    program   0x00000e
-          .code_adcbusy.o       code   0x001542    program   0x00000a
-          .code_adcconv.o       code   0x00154c    program   0x000004
-           .code___init.o       code   0x001550    program   0x000002
-         .idata_c018i.o_i    romdata   0x001552    program   0x000000
-        .romdata___init.o    romdata   0x001552    program   0x000000
-        .idata___init.o_i    romdata   0x001552    program   0x000000
-         .romdata_c018i.o    romdata   0x001552    program   0x000000
-       .romdata_t1write.o    romdata   0x001552    program   0x000000
-       .idata_t1write.o_i    romdata   0x001552    program   0x000000
-            .code_c018i.o       code   0x001552    program   0x000000
-      .romdata_adcsetch.o    romdata   0x001552    program   0x000000
-      .idata_adcsetch.o_i    romdata   0x001552    program   0x000000
-        .idata_config.o_i    romdata   0x001552    program   0x000000
-       .romdata_adcread.o    romdata   0x001552    program   0x000000
-       .idata_adcread.o_i    romdata   0x001552    program   0x000000
-        .romdata_config.o    romdata   0x001552    program   0x000000
-        .romdata_t1open.o    romdata   0x001552    program   0x000000
-        .idata_t1open.o_i    romdata   0x001552    program   0x000000
-          .idata_main.o_i    romdata   0x001552    program   0x000000
-        .romdata_t0open.o    romdata   0x001552    program   0x000000
-        .idata_t0open.o_i    romdata   0x001552    program   0x000000
-   .idata_pwm_process.o_i    romdata   0x001552    program   0x000000
-       .romdata_adcopen.o    romdata   0x001552    program   0x000000
-       .idata_adcopen.o_i    romdata   0x001552    program   0x000000
-       .romdata_adcconv.o    romdata   0x001552    program   0x000000
-       .idata_adcconv.o_i    romdata   0x001552    program   0x000000
-   .romdata_pwm_process.o    romdata   0x001552    program   0x000000
-.idata_stepper_process.o_i    romdata   0x001552    program   0x000000
-       .romdata_adcbusy.o    romdata   0x001552    program   0x000000
-       .idata_adcbusy.o_i    romdata   0x001552    program   0x000000
-.romdata_stepper_process.o    romdata   0x001552    program   0x000000
-   .romdata_adc_process.o    romdata   0x001552    program   0x000000
-   .idata_adc_process.o_i    romdata   0x001552    program   0x000000
-                 .tmpdata      udata   0x000000       data   0x00000c
-                MATH_DATA      udata   0x00000c       data   0x000002
-            .udata_main.o      udata   0x000060       data   0x000021
-     .udata_adc_process.o      udata   0x000081       data   0x00000b
-           .udata_c018i.o      udata   0x00008c       data   0x00000a
- .udata_stepper_process.o      udata   0x000096       data   0x000002
-     .udata_pwm_process.o      udata   0x000098       data   0x000002
-         .idata_t1write.o      idata   0x00009a       data   0x000000
-         .udata_t1write.o      udata   0x00009a       data   0x000000
-        .idata_adcsetch.o      idata   0x00009a       data   0x000000
-          .udata___init.o      udata   0x00009a       data   0x000000
-        .udata_adcsetch.o      udata   0x00009a       data   0x000000
-          .idata___init.o      idata   0x00009a       data   0x000000
-         .idata_adcread.o      idata   0x00009a       data   0x000000
-         .udata_adcread.o      udata   0x00009a       data   0x000000
-          .idata_t1open.o      idata   0x00009a       data   0x000000
-          .udata_t1open.o      udata   0x00009a       data   0x000000
-          .idata_t0open.o      idata   0x00009a       data   0x000000
-          .udata_t0open.o      udata   0x00009a       data   0x000000
-         .idata_adcopen.o      idata   0x00009a       data   0x000000
-         .udata_adcopen.o      udata   0x00009a       data   0x000000
-         .idata_adcconv.o      idata   0x00009a       data   0x000000
-         .udata_adcconv.o      udata   0x00009a       data   0x000000
-         .idata_adcbusy.o      idata   0x00009a       data   0x000000
-         .udata_adcbusy.o      udata   0x00009a       data   0x000000
-     .idata_adc_process.o      idata   0x00009a       data   0x000000
- .idata_stepper_process.o      idata   0x00009a       data   0x000000
-     .idata_pwm_process.o      idata   0x00009a       data   0x000000
-            .idata_main.o      idata   0x00009a       data   0x000000
-          .idata_config.o      idata   0x00009a       data   0x000000
-          .udata_config.o      udata   0x00009a       data   0x000000
-           .idata_c018i.o      idata   0x00009a       data   0x000000
+              .code_led.o       code   0x00082c    program   0x000712
+             .code_main.o       code   0x000f3e    program   0x0004ee
+          .code_speaker.o       code   0x00142c    program   0x00049e
+  .code_stepper_process.o       code   0x0018ca    program   0x00035c
+      .code_adc_process.o       code   0x001c26    program   0x000164
+           .code_config.o       code   0x001d8a    program   0x0000b4
+               _cinit_scn       code   0x001e3e    program   0x00009e
+           .romdata_led.o    romdata   0x001edc    program   0x000080
+          .code_adcopen.o       code   0x001f5c    program   0x00006e
+           .code_t1open.o       code   0x001fca    program   0x000042
+          .code_t1write.o       code   0x00200c    program   0x000038
+           .code_t0open.o       code   0x002044    program   0x000038
+         .code_adcsetch.o       code   0x00207c    program   0x00002e
+      .code_pwm_process.o       code   0x0020aa    program   0x00002a
+             _startup_scn       code   0x0020d4    program   0x00001c
+         .code_fxd0808u.o       code   0x0020f0    program   0x00001c
+          .code_adcread.o       code   0x00210c    program   0x000012
+                    .code       code   0x00211e    program   0x00000e
+          .code_adcbusy.o       code   0x00212c    program   0x00000a
+          .code_adcconv.o       code   0x002136    program   0x000004
+           .code___init.o       code   0x00213a    program   0x000002
+      .romdata_adcsetch.o    romdata   0x00213c    program   0x000000
+       .idata_adcopen.o_i    romdata   0x00213c    program   0x000000
+       .romdata_adcopen.o    romdata   0x00213c    program   0x000000
+      .idata_adcsetch.o_i    romdata   0x00213c    program   0x000000
+        .idata_t0open.o_i    romdata   0x00213c    program   0x000000
+        .romdata_t0open.o    romdata   0x00213c    program   0x000000
+        .idata_t1open.o_i    romdata   0x00213c    program   0x000000
+        .romdata_t1open.o    romdata   0x00213c    program   0x000000
+        .romdata___init.o    romdata   0x00213c    program   0x000000
+        .idata___init.o_i    romdata   0x00213c    program   0x000000
+       .romdata_t1write.o    romdata   0x00213c    program   0x000000
+       .idata_t1write.o_i    romdata   0x00213c    program   0x000000
+       .idata_adcread.o_i    romdata   0x00213c    program   0x000000
+       .romdata_adcread.o    romdata   0x00213c    program   0x000000
+         .idata_c018i.o_i    romdata   0x00213c    program   0x000000
+         .romdata_c018i.o    romdata   0x00213c    program   0x000000
+            .code_c018i.o       code   0x00213c    program   0x000000
+        .idata_config.o_i    romdata   0x00213c    program   0x000000
+        .romdata_config.o    romdata   0x00213c    program   0x000000
+          .idata_main.o_i    romdata   0x00213c    program   0x000000
+          .romdata_main.o    romdata   0x00213c    program   0x000000
+   .idata_pwm_process.o_i    romdata   0x00213c    program   0x000000
+   .romdata_pwm_process.o    romdata   0x00213c    program   0x000000
+.idata_stepper_process.o_i    romdata   0x00213c    program   0x000000
+.romdata_stepper_process.o    romdata   0x00213c    program   0x000000
+   .idata_adc_process.o_i    romdata   0x00213c    program   0x000000
+   .romdata_adc_process.o    romdata   0x00213c    program   0x000000
+           .idata_led.o_i    romdata   0x00213c    program   0x000000
+       .idata_speaker.o_i    romdata   0x00213c    program   0x000000
+       .romdata_speaker.o    romdata   0x00213c    program   0x000000
+       .idata_adcbusy.o_i    romdata   0x00213c    program   0x000000
+       .romdata_adcbusy.o    romdata   0x00213c    program   0x000000
+       .idata_adcconv.o_i    romdata   0x00213c    program   0x000000
+       .romdata_adcconv.o    romdata   0x00213c    program   0x000000
+      .idata_fxd0808u.o_i    romdata   0x00213c    program   0x000000
+      .romdata_fxd0808u.o    romdata   0x00213c    program   0x000000
+                MATH_DATA      udata   0x000000       data   0x000010
+                 .tmpdata      udata   0x000010       data   0x00000c
+            .udata_main.o      udata   0x000060       data   0x00002f
+             .udata_led.o      udata   0x00008f       data   0x000016
+         .udata_speaker.o      udata   0x0000a5       data   0x000015
+     .udata_adc_process.o      udata   0x0000ba       data   0x00000b
+           .udata_c018i.o      udata   0x0000c5       data   0x00000a
+ .udata_stepper_process.o      udata   0x0000cf       data   0x000002
+     .udata_pwm_process.o      udata   0x0000d1       data   0x000002
+        .idata_fxd0808u.o      idata   0x0000d3       data   0x000000
+         .udata_adcopen.o      udata   0x0000d3       data   0x000000
+         .idata_adcopen.o      idata   0x0000d3       data   0x000000
+          .udata_t0open.o      udata   0x0000d3       data   0x000000
+          .idata_t0open.o      idata   0x0000d3       data   0x000000
+          .udata_t1open.o      udata   0x0000d3       data   0x000000
+          .idata_t1open.o      idata   0x0000d3       data   0x000000
+         .udata_adcread.o      udata   0x0000d3       data   0x000000
+          .idata___init.o      idata   0x0000d3       data   0x000000
+         .idata_adcread.o      idata   0x0000d3       data   0x000000
+          .udata___init.o      udata   0x0000d3       data   0x000000
+        .udata_adcsetch.o      udata   0x0000d3       data   0x000000
+        .idata_adcsetch.o      idata   0x0000d3       data   0x000000
+         .udata_t1write.o      udata   0x0000d3       data   0x000000
+         .idata_t1write.o      idata   0x0000d3       data   0x000000
+        .udata_fxd0808u.o      udata   0x0000d3       data   0x000000
+         .idata_adcconv.o      idata   0x0000d3       data   0x000000
+         .udata_adcconv.o      udata   0x0000d3       data   0x000000
+         .idata_adcbusy.o      idata   0x0000d3       data   0x000000
+         .udata_adcbusy.o      udata   0x0000d3       data   0x000000
+         .idata_speaker.o      idata   0x0000d3       data   0x000000
+             .idata_led.o      idata   0x0000d3       data   0x000000
+     .idata_adc_process.o      idata   0x0000d3       data   0x000000
+ .idata_stepper_process.o      idata   0x0000d3       data   0x000000
+     .idata_pwm_process.o      idata   0x0000d3       data   0x000000
+            .idata_main.o      idata   0x0000d3       data   0x000000
+          .idata_config.o      idata   0x0000d3       data   0x000000
+          .udata_config.o      udata   0x0000d3       data   0x000000
+           .idata_c018i.o      idata   0x0000d3       data   0x000000
                    .stack      udata   0x000300       data   0x000100
             SFR_UNBANKED0      udata   0x000f66       data   0x00009a
 
@@ -101,82 +116,100 @@ Linker Map File - Created Sat May 17 22:53:37 2014
                             0x000800    0x000805      
                             0x000808    0x00080d      
                             0x000818    0x00081d      
-                            0x00082a    0x001551      
-            3392 out of 33048 program addresses used, program memory utilization is 10%
+                            0x00082a    0x00213b      
+            6442 out of 33048 program addresses used, program memory utilization is 19%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-              ADC_Process   0x00108e    program     extern D:\GitHub\EE4_project\adc_process.c
-                  BusyADC   0x001542    program     extern C:\MCC18\src\pmc_common\ADC\adcbusy.c
-              ButtonCheck   0x000914    program     extern D:\GitHub\EE4_project\main.c
-               ConvertADC   0x00154c    program     extern C:\MCC18\src\pmc_common\ADC\adcconv.c
-                    Delay   0x000ca6    program     extern D:\GitHub\EE4_project\main.c
-            HeartBeatGame   0x000ba6    program     extern D:\GitHub\EE4_project\main.c
-                     Init   0x0008b2    program     extern D:\GitHub\EE4_project\main.c
-         Init_ADC_Process   0x001058    program     extern D:\GitHub\EE4_project\adc_process.c
-         Init_PWM_Process   0x0014dc    program     extern D:\GitHub\EE4_project\pwm_process.c
-     Init_Stepper_Process   0x000cec    program     extern D:\GitHub\EE4_project\stepper_process.c
-          Init_Timer_Loop   0x0011bc    program     extern D:\GitHub\EE4_project\config.c
+              ADC_Process   0x001c5c    program     extern D:\GitHub\EE4_project\adc_process.c
+                  BusyADC   0x00212c    program     extern C:\MCC18\src\pmc_common\ADC\adcbusy.c
+              ButtonCheck   0x001054    program     extern D:\GitHub\EE4_project\main.c
+               ConvertADC   0x002136    program     extern C:\MCC18\src\pmc_common\ADC\adcconv.c
+                    Delay   0x000ef8    program     extern D:\GitHub\EE4_project\led.c
+                  Delayms   0x0013d0    program     extern D:\GitHub\EE4_project\main.c
+                 EEG_Game   0x0011f4    program     extern D:\GitHub\EE4_project\main.c
+                 FXD0808U   0x0020f0    program     extern C:\MCC18\src\traditional\math\fxd0808u.c
+            HeartBeatGame   0x00107a    program     extern D:\GitHub\EE4_project\main.c
+                     Init   0x000ff2    program     extern D:\GitHub\EE4_project\main.c
+         Init_ADC_Process   0x001c26    program     extern D:\GitHub\EE4_project\adc_process.c
+                 Init_LED   0x00082c    program     extern D:\GitHub\EE4_project\led.c
+         Init_PWM_Process   0x0020aa    program     extern D:\GitHub\EE4_project\pwm_process.c
+             Init_Speaker   0x00142c    program     extern D:\GitHub\EE4_project\speaker.c
+     Init_Stepper_Process   0x0018ca    program     extern D:\GitHub\EE4_project\stepper_process.c
+          Init_Timer_Loop   0x001d8a    program     extern D:\GitHub\EE4_project\config.c
       InterruptVectorHigh   0x000808    program     extern D:\GitHub\EE4_project\config.c
        InterruptVectorLow   0x000818    program     extern D:\GitHub\EE4_project\config.c
-        Interrupt_Handler   0x0011d4    program     extern D:\GitHub\EE4_project\config.c
-              LED_All_Off   0x00093a    program     extern D:\GitHub\EE4_project\main.c
-           LED_Blink_Left   0x000b2e    program     extern D:\GitHub\EE4_project\main.c
-          LED_Blink_Right   0x000b6a    program     extern D:\GitHub\EE4_project\main.c
-            LED_Left_Four   0x0009f8    program     extern D:\GitHub\EE4_project\main.c
-               LED_Number   0x000968    program     extern D:\GitHub\EE4_project\main.c
-           LED_Right_Four   0x000a98    program     extern D:\GitHub\EE4_project\main.c
-                  OpenADC   0x00138e    program     extern C:\MCC18\src\pmc_common\ADC\adcopen.c
-               OpenTimer0   0x001476    program     extern C:\MCC18\src\pmc_common\Timers\t0open.c
-               OpenTimer1   0x0013fc    program     extern C:\MCC18\src\pmc_common\Timers\t1open.c
-              PWM_Process   0x0014ea    program     extern D:\GitHub\EE4_project\pwm_process.c
-                  ReadADC   0x001522    program     extern C:\MCC18\src\pmc_common\ADC\adcread.c
-               SetChanADC   0x0014ae    program     extern C:\MCC18\src\pmc_common\ADC\adcsetch.c
-          Stepper_Process   0x000d78    program     extern D:\GitHub\EE4_project\stepper_process.c
-             Stepper_Step   0x000fc0    program     extern D:\GitHub\EE4_project\stepper_process.c
-                     Wait   0x0011c8    program     extern D:\GitHub\EE4_project\config.c
-              WriteTimer1   0x00143e    program     extern C:\MCC18\src\pmc_common\Timers\t1write.c
-       ___return_lbl00000   0x000004    program     static                          
+        Interrupt_Handler   0x001da2    program     extern D:\GitHub\EE4_project\config.c
+         LED_AllLedsBlink   0x000dee    program     extern D:\GitHub\EE4_project\led.c
+  LED_AllLedsBlinkSpeedUp   0x000e3c    program     extern D:\GitHub\EE4_project\led.c
+              LED_All_Off   0x00086e    program     extern D:\GitHub\EE4_project\led.c
+               LED_Number   0x00089a    program     extern D:\GitHub\EE4_project\led.c
+            LED_allLedsGo   0x000ae8    program     extern D:\GitHub\EE4_project\led.c
+        LED_allLedsGoFast   0x000b9e    program     extern D:\GitHub\EE4_project\led.c
+     LED_allLedsGoReverse   0x000c56    program     extern D:\GitHub\EE4_project\led.c
+ LED_allLedsGoReverseFast   0x000d0c    program     extern D:\GitHub\EE4_project\led.c
+            LED_allLedsOn   0x000dc4    program     extern D:\GitHub\EE4_project\led.c
+         LED_leftFourLeds   0x0009fc    program     extern D:\GitHub\EE4_project\led.c
+    LED_leftFourLedsBlink   0x000a9a    program     extern D:\GitHub\EE4_project\led.c
+        LED_rightFourLeds   0x000928    program     extern D:\GitHub\EE4_project\led.c
+   LED_rightFourLedsBlink   0x0009c0    program     extern D:\GitHub\EE4_project\led.c
+                  OpenADC   0x001f5c    program     extern C:\MCC18\src\pmc_common\ADC\adcopen.c
+               OpenTimer0   0x002044    program     extern C:\MCC18\src\pmc_common\Timers\t0open.c
+               OpenTimer1   0x001fca    program     extern C:\MCC18\src\pmc_common\Timers\t1open.c
+              PWM_Process   0x0020b8    program     extern D:\GitHub\EE4_project\pwm_process.c
+                  ReadADC   0x00210c    program     extern C:\MCC18\src\pmc_common\ADC\adcread.c
+               SetChanADC   0x00207c    program     extern C:\MCC18\src\pmc_common\ADC\adcsetch.c
+            Speaker_Song1   0x00145a    program     extern D:\GitHub\EE4_project\speaker.c
+            Speaker_Song2   0x00153c    program     extern D:\GitHub\EE4_project\speaker.c
+            Speaker_Song3   0x00162a    program     extern D:\GitHub\EE4_project\speaker.c
+          Stepper_Process   0x001956    program     extern D:\GitHub\EE4_project\stepper_process.c
+             Stepper_Step   0x001b8e    program     extern D:\GitHub\EE4_project\stepper_process.c
+                     Wait   0x001d96    program     extern D:\GitHub\EE4_project\config.c
+              WriteTimer1   0x00200c    program     extern C:\MCC18\src\pmc_common\Timers\t1write.c
        ___return_lbl00000   0x000804    program     static                          
+       ___return_lbl00000   0x00210a    program     static                          
+       ___return_lbl00000   0x000004    program     static                          
        ___return_lbl00001   0x00080c    program     static                          
-       ___return_lbl00001   0x001520    program     static                          
+       ___return_lbl00001   0x0020ee    program     static                          
        ___return_lbl00002   0x00081c    program     static                          
-       ___return_lbl00002   0x00130c    program     static                          
-       ___return_lbl00004   0x0011d2    program     static                          
-        ___while_lbl00005   0x0011c8    program     static                          
-        ___while_lbl00006   0x0011d0    program     static                          
-                   __init   0x001550    program     extern C:\MCC18\src\traditional\stdclib\__init.c
-            __zero_memory   0x001534    program     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                _do_cinit   0x001270    program     extern C:\MCC18\src\traditional\startup\c018i.c
+       ___return_lbl00002   0x001eda    program     static                          
+       ___return_lbl00004   0x001da0    program     static                          
+        ___while_lbl00005   0x001d96    program     static                          
+        ___while_lbl00006   0x001d9e    program     static                          
+                   __init   0x00213a    program     extern C:\MCC18\src\traditional\stdclib\__init.c
+            __zero_memory   0x00211e    program     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                _do_cinit   0x001e3e    program     extern C:\MCC18\src\traditional\startup\c018i.c
                    _entry   0x000000    program     extern C:\MCC18\src\traditional\startup\c018i.c
                    _reset   0x000800    program     extern D:\GitHub\EE4_project\config.c
-                 _startup   0x001506    program     extern C:\MCC18\src\traditional\startup\c018i.c
-               clear_loop   0x00153a    program     static C:\MCC18\src\traditional\proc\p18F2550.asm
-                copy_loop   0x0012e2    program     static                          
-            copy_one_byte   0x0012e8    program     static                          
-                     data   0x00130e    program     extern D:\GitHub\EE4_project\main.c
-                     done   0x00130c    program     static                          
-             done_copying   0x0012f6    program     static                          
-                     loop   0x001516    program     static                          
-                     main   0x00082c    program     extern D:\GitHub\EE4_project\main.c
-                     test   0x00128a    program     static                          
+                 _startup   0x0020d4    program     extern C:\MCC18\src\traditional\startup\c018i.c
+               clear_loop   0x002124    program     static C:\MCC18\src\traditional\proc\p18F2550.asm
+                copy_loop   0x001eb0    program     static                          
+            copy_one_byte   0x001eb6    program     static                          
+                     data   0x001edc    program     extern D:\GitHub\EE4_project\led.c
+                     done   0x001eda    program     static                          
+             done_copying   0x001ec4    program     static                          
+                  endloop   0x002106    program     static                          
+                     loop   0x0020f8    program     static                          
+                     loop   0x0020e4    program     static                          
+                     main   0x000f3e    program     extern D:\GitHub\EE4_project\main.c
+                     test   0x001e58    program     static                          
                    ADCON0   0x000fc2       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                ADCON0bits   0x000fc2       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    ADCON1   0x000fc1       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                ADCON1bits   0x000fc1       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    ADCON2   0x000fc0       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                ADCON2bits   0x000fc0       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                 ADCState   0x000081       data     extern D:\GitHub\EE4_project\adc_process.c
+                 ADCState   0x0000ba       data     extern D:\GitHub\EE4_project\adc_process.c
                     ADRES   0x000fc3       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    ADRESH   0x000fc4       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    ADRESL   0x000fc3       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                   BAUDCON   0x000fb8       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
               BAUDCONbits   0x000fb8       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                       BSR   0x000fe0       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-              ButtonCount   0x000062       data     extern D:\GitHub\EE4_project\main.c
+              ButtonCount   0x000066       data     extern D:\GitHub\EE4_project\main.c
                    CCP1AS   0x000fb6       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                CCP1ASbits   0x000fb6       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                   CCP1CON   0x000fbd       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
@@ -219,12 +252,14 @@ Linker Map File - Created Sat May 17 22:53:37 2014
                      FSR2   0x000fd9       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     FSR2H   0x000fda       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     FSR2L   0x000fd9       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-               FlagBlink1   0x000066       data     extern D:\GitHub\EE4_project\main.c
-               FlagBlink2   0x000067       data     extern D:\GitHub\EE4_project\main.c
+               FlagBlink1   0x00008f       data     extern D:\GitHub\EE4_project\led.c
+               FlagBlink2   0x000090       data     extern D:\GitHub\EE4_project\led.c
+               FlagBlink3   0x000091       data     extern D:\GitHub\EE4_project\led.c
+               FlagBlink4   0x000092       data     extern D:\GitHub\EE4_project\led.c
                   HLVDCON   0x000fd2       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
               HLVDCONbits   0x000fd2       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                 HRcount1   0x00006d       data     extern D:\GitHub\EE4_project\main.c
-                 HRcount2   0x000071       data     extern D:\GitHub\EE4_project\main.c
+                 HRcount1   0x00006a       data     extern D:\GitHub\EE4_project\main.c
+                 HRcount2   0x00006e       data     extern D:\GitHub\EE4_project\main.c
                     INDF0   0x000fef       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     INDF1   0x000fe7       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     INDF2   0x000fdf       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
@@ -244,13 +279,21 @@ Linker Map File - Created Sat May 17 22:53:37 2014
                  LATBbits   0x000f8a       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                      LATC   0x000f8b       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                  LATCbits   0x000f8b       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                   LEDpos   0x00006c       data     extern D:\GitHub\EE4_project\main.c
+                   LEDpos   0x00009f       data     extern D:\GitHub\EE4_project\led.c
                    LVDCON   0x000fd2       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                LVDCONbits   0x000fd2       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    OSCCON   0x000fd3       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                OSCCONbits   0x000fd3       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                   OSCTUNE   0x000f9b       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
               OSCTUNEbits   0x000f9b       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                      P1a   0x00007e       data     extern D:\GitHub\EE4_project\main.c
+                      P1b   0x000082       data     extern D:\GitHub\EE4_project\main.c
+                      P1c   0x000086       data     extern D:\GitHub\EE4_project\main.c
+                   P1peak   0x00008a       data     extern D:\GitHub\EE4_project\main.c
+                      P2a   0x000080       data     extern D:\GitHub\EE4_project\main.c
+                      P2b   0x000084       data     extern D:\GitHub\EE4_project\main.c
+                      P2c   0x000088       data     extern D:\GitHub\EE4_project\main.c
+                   P2peak   0x00008b       data     extern D:\GitHub\EE4_project\main.c
                        PC   0x000ff9       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                       PCL   0x000ff9       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    PCLATH   0x000ffa       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
@@ -287,18 +330,19 @@ Linker Map File - Created Sat May 17 22:53:37 2014
                      PROD   0x000ff3       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     PRODH   0x000ff4       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     PRODL   0x000ff3       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-               PWM_Duty_1   0x000099       data     extern D:\GitHub\EE4_project\pwm_process.c
-              PWM_counter   0x000098       data     extern D:\GitHub\EE4_project\pwm_process.c
-                Player1HR   0x00007d       data     extern D:\GitHub\EE4_project\main.c
-                Player2HR   0x00007f       data     extern D:\GitHub\EE4_project\main.c
+               PWM_Duty_1   0x0000d2       data     extern D:\GitHub\EE4_project\pwm_process.c
+              PWM_counter   0x0000d1       data     extern D:\GitHub\EE4_project\pwm_process.c
+                Player1HR   0x00007a       data     extern D:\GitHub\EE4_project\main.c
+                Player2HR   0x00007c       data     extern D:\GitHub\EE4_project\main.c
+                PreLEDpos   0x0000a0       data     extern D:\GitHub\EE4_project\led.c
                      RCON   0x000fd0       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                  RCONbits   0x000fd0       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     RCREG   0x000fae       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     RCSTA   0x000fab       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                 RCSTAbits   0x000fab       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-         RealScorePlayer1   0x000079       data     extern D:\GitHub\EE4_project\main.c
-         RealScorePlayer2   0x00007b       data     extern D:\GitHub\EE4_project\main.c
-                     SIGN   0x00000c       data     extern C:\MCC18\src\traditional\math\cmath18.asm
+         RealScorePlayer1   0x000076       data     extern D:\GitHub\EE4_project\main.c
+         RealScorePlayer2   0x000078       data     extern D:\GitHub\EE4_project\main.c
+                     SIGN   0x00000e       data     extern C:\MCC18\src\traditional\math\cmath18.asm
                     SPBRG   0x000faf       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    SPBRGH   0x000fb0       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    SSPADD   0x000fc8       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
@@ -313,8 +357,21 @@ Linker Map File - Created Sat May 17 22:53:37 2014
                STATUSbits   0x000fd8       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    STKPTR   0x000ffc       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                STKPTRbits   0x000ffc       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-             ScorePlayer1   0x000075       data     extern D:\GitHub\EE4_project\main.c
-             ScorePlayer2   0x000077       data     extern D:\GitHub\EE4_project\main.c
+             ScorePlayer1   0x000072       data     extern D:\GitHub\EE4_project\main.c
+             ScorePlayer2   0x000074       data     extern D:\GitHub\EE4_project\main.c
+            Song2FCounter   0x0000ac       data     extern D:\GitHub\EE4_project\speaker.c
+           Song2FCounter2   0x0000ad       data     extern D:\GitHub\EE4_project\speaker.c
+           Song2FCounter3   0x0000ae       data     extern D:\GitHub\EE4_project\speaker.c
+           Song2FCounter4   0x0000af       data     extern D:\GitHub\EE4_project\speaker.c
+           Song2FCounter5   0x0000b0       data     extern D:\GitHub\EE4_project\speaker.c
+           Song3FCounter1   0x0000b3       data     extern D:\GitHub\EE4_project\speaker.c
+           Song3FCounter2   0x0000b4       data     extern D:\GitHub\EE4_project\speaker.c
+           Song3FCounter3   0x0000b5       data     extern D:\GitHub\EE4_project\speaker.c
+           Song3FCounter4   0x0000b6       data     extern D:\GitHub\EE4_project\speaker.c
+           Song3FCounter5   0x0000b7       data     extern D:\GitHub\EE4_project\speaker.c
+           Song3FCounter7   0x0000b8       data     extern D:\GitHub\EE4_project\speaker.c
+           Song3FCounter8   0x0000b9       data     extern D:\GitHub\EE4_project\speaker.c
+          SpeedUpCounter1   0x00009b       data     extern D:\GitHub\EE4_project\led.c
                     State   0x000060       data     extern D:\GitHub\EE4_project\main.c
                     T0CON   0x000fd5       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                 T0CONbits   0x000fd5       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
@@ -406,25 +463,61 @@ Linker Map File - Created Sat May 17 22:53:37 2014
                WDTCONbits   0x000fd1       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                      WREG   0x000fe8       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    Winner   0x000061       data     extern D:\GitHub\EE4_project\main.c
-                __FPFLAGS   0x00000d       data     extern C:\MCC18\src\traditional\math\cmath18.asm
-            __FPFLAGSbits   0x00000d       data     extern C:\MCC18\src\traditional\math\cmath18.asm
-                  __tmp_0   0x000000       data     static D:\GitHub\EE4_project\stepper_process.c
-                  __tmp_0   0x000000       data     static D:\GitHub\EE4_project\main.c
-                  __tmp_0   0x000000       data     static C:\MCC18\src\pmc_common\ADC\adcsetch.c
-                  __tmp_0   0x000000       data     static C:\MCC18\src\pmc_common\ADC\adcread.c
-                  __tmp_0   0x000000       data     static C:\MCC18\src\pmc_common\ADC\adcopen.c
-            analogInput_0   0x000082       data     extern D:\GitHub\EE4_project\adc_process.c
-            analogInput_1   0x000084       data     extern D:\GitHub\EE4_project\adc_process.c
-            analogInput_2   0x000086       data     extern D:\GitHub\EE4_project\adc_process.c
-            analogInput_3   0x000088       data     extern D:\GitHub\EE4_project\adc_process.c
-            analogInput_4   0x00008a       data     extern D:\GitHub\EE4_project\adc_process.c
-            counterBlink1   0x000068       data     extern D:\GitHub\EE4_project\main.c
-            counterBlink2   0x00006a       data     extern D:\GitHub\EE4_project\main.c
-                curr_byte   0x00008f       data     static C:\MCC18\src\traditional\startup\c018i.c
-               curr_entry   0x000091       data     static C:\MCC18\src\traditional\startup\c018i.c
-                 data_ptr   0x000093       data     static C:\MCC18\src\traditional\startup\c018i.c
-                     prom   0x00008c       data     static C:\MCC18\src\traditional\startup\c018i.c
-                  stepper   0x000096       data     static D:\GitHub\EE4_project\stepper_process.c
+                 __AARGB0   0x000007       data     extern C:\MCC18\src\traditional\math\aarg.asm
+                 __AARGB1   0x000006       data     extern C:\MCC18\src\traditional\math\aarg.asm
+                 __AARGB2   0x000005       data     extern C:\MCC18\src\traditional\math\aarg.asm
+                 __AARGB3   0x000004       data     extern C:\MCC18\src\traditional\math\aarg.asm
+                 __AARGB4   0x000003       data     extern C:\MCC18\src\traditional\math\aarg.asm
+                 __AARGB5   0x000002       data     extern C:\MCC18\src\traditional\math\aarg.asm
+                 __AARGB6   0x000001       data     extern C:\MCC18\src\traditional\math\aarg.asm
+                 __AARGB7   0x000000       data     extern C:\MCC18\src\traditional\math\aarg.asm
+                   __AEXP   0x000008       data     extern C:\MCC18\src\traditional\math\aarg.asm
+                 __BARGB0   0x00000c       data     extern C:\MCC18\src\traditional\math\barg.asm
+                 __BARGB1   0x00000b       data     extern C:\MCC18\src\traditional\math\barg.asm
+                 __BARGB2   0x00000a       data     extern C:\MCC18\src\traditional\math\barg.asm
+                 __BARGB3   0x000009       data     extern C:\MCC18\src\traditional\math\barg.asm
+                   __BEXP   0x00000d       data     extern C:\MCC18\src\traditional\math\barg.asm
+                __FPFLAGS   0x00000f       data     extern C:\MCC18\src\traditional\math\cmath18.asm
+            __FPFLAGSbits   0x00000f       data     extern C:\MCC18\src\traditional\math\cmath18.asm
+                  __REMB0   0x000003       data     extern C:\MCC18\src\traditional\math\aarg.asm
+                  __REMB1   0x000002       data     extern C:\MCC18\src\traditional\math\aarg.asm
+                  __REMB2   0x000001       data     extern C:\MCC18\src\traditional\math\aarg.asm
+                  __REMB3   0x000000       data     extern C:\MCC18\src\traditional\math\aarg.asm
+                  __tmp_0   0x000010       data     static D:\GitHub\EE4_project\speaker.c
+                  __tmp_0   0x000010       data     static D:\GitHub\EE4_project\main.c
+                  __tmp_0   0x000010       data     static D:\GitHub\EE4_project\stepper_process.c
+                  __tmp_0   0x000010       data     static D:\GitHub\EE4_project\led.c
+                  __tmp_0   0x000010       data     static C:\MCC18\src\pmc_common\ADC\adcsetch.c
+                  __tmp_0   0x000010       data     static C:\MCC18\src\pmc_common\ADC\adcread.c
+                  __tmp_0   0x000010       data     static C:\MCC18\src\pmc_common\ADC\adcopen.c
+            analogInput_0   0x0000bb       data     extern D:\GitHub\EE4_project\adc_process.c
+            analogInput_1   0x0000bd       data     extern D:\GitHub\EE4_project\adc_process.c
+            analogInput_2   0x0000bf       data     extern D:\GitHub\EE4_project\adc_process.c
+            analogInput_3   0x0000c1       data     extern D:\GitHub\EE4_project\adc_process.c
+            analogInput_4   0x0000c3       data     extern D:\GitHub\EE4_project\adc_process.c
+               counterAll   0x0000a3       data     extern D:\GitHub\EE4_project\led.c
+            counterBlink1   0x000093       data     extern D:\GitHub\EE4_project\led.c
+            counterBlink2   0x000095       data     extern D:\GitHub\EE4_project\led.c
+            counterBlink3   0x000097       data     extern D:\GitHub\EE4_project\led.c
+            counterBlink4   0x000099       data     extern D:\GitHub\EE4_project\led.c
+           counterBlinkV1   0x00009d       data     extern D:\GitHub\EE4_project\led.c
+                curr_byte   0x0000c8       data     static C:\MCC18\src\traditional\startup\c018i.c
+               curr_entry   0x0000ca       data     static C:\MCC18\src\traditional\startup\c018i.c
+                 data_ptr   0x0000cc       data     static C:\MCC18\src\traditional\startup\c018i.c
+                  eegdiff   0x00008c       data     extern D:\GitHub\EE4_project\main.c
+              eegpointsP1   0x00008d       data     extern D:\GitHub\EE4_project\main.c
+              eegpointsP2   0x00008e       data     extern D:\GitHub\EE4_project\main.c
+                    flag1   0x000062       data     extern D:\GitHub\EE4_project\main.c
+                    flag2   0x000064       data     extern D:\GitHub\EE4_project\main.c
+                        i   0x0000a6       data     extern D:\GitHub\EE4_project\speaker.c
+                 ledsDown   0x0000a2       data     extern D:\GitHub\EE4_project\led.c
+                   ledsUp   0x0000a1       data     extern D:\GitHub\EE4_project\led.c
+                        m   0x0000a8       data     extern D:\GitHub\EE4_project\speaker.c
+                     prom   0x0000c5       data     static C:\MCC18\src\traditional\startup\c018i.c
+          speaker1Counter   0x0000a5       data     extern D:\GitHub\EE4_project\speaker.c
+          speaker2Counter   0x0000aa       data     extern D:\GitHub\EE4_project\speaker.c
+          speaker3Counter   0x0000b1       data     extern D:\GitHub\EE4_project\speaker.c
+                  stepper   0x0000cf       data     static D:\GitHub\EE4_project\stepper_process.c
 
 
 
@@ -439,140 +532,218 @@ Linker Map File - Created Sat May 17 22:53:37 2014
        ___return_lbl00001   0x00080c    program     static                          
        InterruptVectorLow   0x000818    program     extern D:\GitHub\EE4_project\config.c
        ___return_lbl00002   0x00081c    program     static                          
-                     main   0x00082c    program     extern D:\GitHub\EE4_project\main.c
-                     Init   0x0008b2    program     extern D:\GitHub\EE4_project\main.c
-              ButtonCheck   0x000914    program     extern D:\GitHub\EE4_project\main.c
-              LED_All_Off   0x00093a    program     extern D:\GitHub\EE4_project\main.c
-               LED_Number   0x000968    program     extern D:\GitHub\EE4_project\main.c
-            LED_Left_Four   0x0009f8    program     extern D:\GitHub\EE4_project\main.c
-           LED_Right_Four   0x000a98    program     extern D:\GitHub\EE4_project\main.c
-           LED_Blink_Left   0x000b2e    program     extern D:\GitHub\EE4_project\main.c
-          LED_Blink_Right   0x000b6a    program     extern D:\GitHub\EE4_project\main.c
-            HeartBeatGame   0x000ba6    program     extern D:\GitHub\EE4_project\main.c
-                    Delay   0x000ca6    program     extern D:\GitHub\EE4_project\main.c
-     Init_Stepper_Process   0x000cec    program     extern D:\GitHub\EE4_project\stepper_process.c
-          Stepper_Process   0x000d78    program     extern D:\GitHub\EE4_project\stepper_process.c
-             Stepper_Step   0x000fc0    program     extern D:\GitHub\EE4_project\stepper_process.c
-         Init_ADC_Process   0x001058    program     extern D:\GitHub\EE4_project\adc_process.c
-              ADC_Process   0x00108e    program     extern D:\GitHub\EE4_project\adc_process.c
-          Init_Timer_Loop   0x0011bc    program     extern D:\GitHub\EE4_project\config.c
-        ___while_lbl00005   0x0011c8    program     static                          
-                     Wait   0x0011c8    program     extern D:\GitHub\EE4_project\config.c
-        ___while_lbl00006   0x0011d0    program     static                          
-       ___return_lbl00004   0x0011d2    program     static                          
-        Interrupt_Handler   0x0011d4    program     extern D:\GitHub\EE4_project\config.c
-                _do_cinit   0x001270    program     extern C:\MCC18\src\traditional\startup\c018i.c
-                     test   0x00128a    program     static                          
-                copy_loop   0x0012e2    program     static                          
-            copy_one_byte   0x0012e8    program     static                          
-             done_copying   0x0012f6    program     static                          
-       ___return_lbl00002   0x00130c    program     static                          
-                     done   0x00130c    program     static                          
-                     data   0x00130e    program     extern D:\GitHub\EE4_project\main.c
-                  OpenADC   0x00138e    program     extern C:\MCC18\src\pmc_common\ADC\adcopen.c
-               OpenTimer1   0x0013fc    program     extern C:\MCC18\src\pmc_common\Timers\t1open.c
-              WriteTimer1   0x00143e    program     extern C:\MCC18\src\pmc_common\Timers\t1write.c
-               OpenTimer0   0x001476    program     extern C:\MCC18\src\pmc_common\Timers\t0open.c
-               SetChanADC   0x0014ae    program     extern C:\MCC18\src\pmc_common\ADC\adcsetch.c
-         Init_PWM_Process   0x0014dc    program     extern D:\GitHub\EE4_project\pwm_process.c
-              PWM_Process   0x0014ea    program     extern D:\GitHub\EE4_project\pwm_process.c
-                 _startup   0x001506    program     extern C:\MCC18\src\traditional\startup\c018i.c
-                     loop   0x001516    program     static                          
-       ___return_lbl00001   0x001520    program     static                          
-                  ReadADC   0x001522    program     extern C:\MCC18\src\pmc_common\ADC\adcread.c
-            __zero_memory   0x001534    program     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-               clear_loop   0x00153a    program     static C:\MCC18\src\traditional\proc\p18F2550.asm
-                  BusyADC   0x001542    program     extern C:\MCC18\src\pmc_common\ADC\adcbusy.c
-               ConvertADC   0x00154c    program     extern C:\MCC18\src\pmc_common\ADC\adcconv.c
-                   __init   0x001550    program     extern C:\MCC18\src\traditional\stdclib\__init.c
-                  __tmp_0   0x000000       data     static D:\GitHub\EE4_project\stepper_process.c
-                  __tmp_0   0x000000       data     static D:\GitHub\EE4_project\main.c
-                  __tmp_0   0x000000       data     static C:\MCC18\src\pmc_common\ADC\adcsetch.c
-                  __tmp_0   0x000000       data     static C:\MCC18\src\pmc_common\ADC\adcread.c
-                  __tmp_0   0x000000       data     static C:\MCC18\src\pmc_common\ADC\adcopen.c
-                     SIGN   0x00000c       data     extern C:\MCC18\src\traditional\math\cmath18.asm
-                __FPFLAGS   0x00000d       data     extern C:\MCC18\src\traditional\math\cmath18.asm
-            __FPFLAGSbits   0x00000d       data     extern C:\MCC18\src\traditional\math\cmath18.asm
+                 Init_LED   0x00082c    program     extern D:\GitHub\EE4_project\led.c
+              LED_All_Off   0x00086e    program     extern D:\GitHub\EE4_project\led.c
+               LED_Number   0x00089a    program     extern D:\GitHub\EE4_project\led.c
+        LED_rightFourLeds   0x000928    program     extern D:\GitHub\EE4_project\led.c
+   LED_rightFourLedsBlink   0x0009c0    program     extern D:\GitHub\EE4_project\led.c
+         LED_leftFourLeds   0x0009fc    program     extern D:\GitHub\EE4_project\led.c
+    LED_leftFourLedsBlink   0x000a9a    program     extern D:\GitHub\EE4_project\led.c
+            LED_allLedsGo   0x000ae8    program     extern D:\GitHub\EE4_project\led.c
+        LED_allLedsGoFast   0x000b9e    program     extern D:\GitHub\EE4_project\led.c
+     LED_allLedsGoReverse   0x000c56    program     extern D:\GitHub\EE4_project\led.c
+ LED_allLedsGoReverseFast   0x000d0c    program     extern D:\GitHub\EE4_project\led.c
+            LED_allLedsOn   0x000dc4    program     extern D:\GitHub\EE4_project\led.c
+         LED_AllLedsBlink   0x000dee    program     extern D:\GitHub\EE4_project\led.c
+  LED_AllLedsBlinkSpeedUp   0x000e3c    program     extern D:\GitHub\EE4_project\led.c
+                    Delay   0x000ef8    program     extern D:\GitHub\EE4_project\led.c
+                     main   0x000f3e    program     extern D:\GitHub\EE4_project\main.c
+                     Init   0x000ff2    program     extern D:\GitHub\EE4_project\main.c
+              ButtonCheck   0x001054    program     extern D:\GitHub\EE4_project\main.c
+            HeartBeatGame   0x00107a    program     extern D:\GitHub\EE4_project\main.c
+                 EEG_Game   0x0011f4    program     extern D:\GitHub\EE4_project\main.c
+                  Delayms   0x0013d0    program     extern D:\GitHub\EE4_project\main.c
+             Init_Speaker   0x00142c    program     extern D:\GitHub\EE4_project\speaker.c
+            Speaker_Song1   0x00145a    program     extern D:\GitHub\EE4_project\speaker.c
+            Speaker_Song2   0x00153c    program     extern D:\GitHub\EE4_project\speaker.c
+            Speaker_Song3   0x00162a    program     extern D:\GitHub\EE4_project\speaker.c
+     Init_Stepper_Process   0x0018ca    program     extern D:\GitHub\EE4_project\stepper_process.c
+          Stepper_Process   0x001956    program     extern D:\GitHub\EE4_project\stepper_process.c
+             Stepper_Step   0x001b8e    program     extern D:\GitHub\EE4_project\stepper_process.c
+         Init_ADC_Process   0x001c26    program     extern D:\GitHub\EE4_project\adc_process.c
+              ADC_Process   0x001c5c    program     extern D:\GitHub\EE4_project\adc_process.c
+          Init_Timer_Loop   0x001d8a    program     extern D:\GitHub\EE4_project\config.c
+        ___while_lbl00005   0x001d96    program     static                          
+                     Wait   0x001d96    program     extern D:\GitHub\EE4_project\config.c
+        ___while_lbl00006   0x001d9e    program     static                          
+       ___return_lbl00004   0x001da0    program     static                          
+        Interrupt_Handler   0x001da2    program     extern D:\GitHub\EE4_project\config.c
+                _do_cinit   0x001e3e    program     extern C:\MCC18\src\traditional\startup\c018i.c
+                     test   0x001e58    program     static                          
+                copy_loop   0x001eb0    program     static                          
+            copy_one_byte   0x001eb6    program     static                          
+             done_copying   0x001ec4    program     static                          
+       ___return_lbl00002   0x001eda    program     static                          
+                     done   0x001eda    program     static                          
+                     data   0x001edc    program     extern D:\GitHub\EE4_project\led.c
+                  OpenADC   0x001f5c    program     extern C:\MCC18\src\pmc_common\ADC\adcopen.c
+               OpenTimer1   0x001fca    program     extern C:\MCC18\src\pmc_common\Timers\t1open.c
+              WriteTimer1   0x00200c    program     extern C:\MCC18\src\pmc_common\Timers\t1write.c
+               OpenTimer0   0x002044    program     extern C:\MCC18\src\pmc_common\Timers\t0open.c
+               SetChanADC   0x00207c    program     extern C:\MCC18\src\pmc_common\ADC\adcsetch.c
+         Init_PWM_Process   0x0020aa    program     extern D:\GitHub\EE4_project\pwm_process.c
+              PWM_Process   0x0020b8    program     extern D:\GitHub\EE4_project\pwm_process.c
+                 _startup   0x0020d4    program     extern C:\MCC18\src\traditional\startup\c018i.c
+                     loop   0x0020e4    program     static                          
+       ___return_lbl00001   0x0020ee    program     static                          
+                 FXD0808U   0x0020f0    program     extern C:\MCC18\src\traditional\math\fxd0808u.c
+                     loop   0x0020f8    program     static                          
+                  endloop   0x002106    program     static                          
+       ___return_lbl00000   0x00210a    program     static                          
+                  ReadADC   0x00210c    program     extern C:\MCC18\src\pmc_common\ADC\adcread.c
+            __zero_memory   0x00211e    program     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+               clear_loop   0x002124    program     static C:\MCC18\src\traditional\proc\p18F2550.asm
+                  BusyADC   0x00212c    program     extern C:\MCC18\src\pmc_common\ADC\adcbusy.c
+               ConvertADC   0x002136    program     extern C:\MCC18\src\pmc_common\ADC\adcconv.c
+                   __init   0x00213a    program     extern C:\MCC18\src\traditional\stdclib\__init.c
+                  __REMB3   0x000000       data     extern C:\MCC18\src\traditional\math\aarg.asm
+                 __AARGB7   0x000000       data     extern C:\MCC18\src\traditional\math\aarg.asm
+                  __REMB2   0x000001       data     extern C:\MCC18\src\traditional\math\aarg.asm
+                 __AARGB6   0x000001       data     extern C:\MCC18\src\traditional\math\aarg.asm
+                  __REMB1   0x000002       data     extern C:\MCC18\src\traditional\math\aarg.asm
+                 __AARGB5   0x000002       data     extern C:\MCC18\src\traditional\math\aarg.asm
+                 __AARGB4   0x000003       data     extern C:\MCC18\src\traditional\math\aarg.asm
+                  __REMB0   0x000003       data     extern C:\MCC18\src\traditional\math\aarg.asm
+                 __AARGB3   0x000004       data     extern C:\MCC18\src\traditional\math\aarg.asm
+                 __AARGB2   0x000005       data     extern C:\MCC18\src\traditional\math\aarg.asm
+                 __AARGB1   0x000006       data     extern C:\MCC18\src\traditional\math\aarg.asm
+                 __AARGB0   0x000007       data     extern C:\MCC18\src\traditional\math\aarg.asm
+                   __AEXP   0x000008       data     extern C:\MCC18\src\traditional\math\aarg.asm
+                 __BARGB3   0x000009       data     extern C:\MCC18\src\traditional\math\barg.asm
+                 __BARGB2   0x00000a       data     extern C:\MCC18\src\traditional\math\barg.asm
+                 __BARGB1   0x00000b       data     extern C:\MCC18\src\traditional\math\barg.asm
+                 __BARGB0   0x00000c       data     extern C:\MCC18\src\traditional\math\barg.asm
+                   __BEXP   0x00000d       data     extern C:\MCC18\src\traditional\math\barg.asm
+                     SIGN   0x00000e       data     extern C:\MCC18\src\traditional\math\cmath18.asm
+            __FPFLAGSbits   0x00000f       data     extern C:\MCC18\src\traditional\math\cmath18.asm
+                __FPFLAGS   0x00000f       data     extern C:\MCC18\src\traditional\math\cmath18.asm
+                  __tmp_0   0x000010       data     static D:\GitHub\EE4_project\speaker.c
+                  __tmp_0   0x000010       data     static D:\GitHub\EE4_project\main.c
+                  __tmp_0   0x000010       data     static D:\GitHub\EE4_project\stepper_process.c
+                  __tmp_0   0x000010       data     static D:\GitHub\EE4_project\led.c
+                  __tmp_0   0x000010       data     static C:\MCC18\src\pmc_common\ADC\adcsetch.c
+                  __tmp_0   0x000010       data     static C:\MCC18\src\pmc_common\ADC\adcread.c
+                  __tmp_0   0x000010       data     static C:\MCC18\src\pmc_common\ADC\adcopen.c
                     State   0x000060       data     extern D:\GitHub\EE4_project\main.c
                    Winner   0x000061       data     extern D:\GitHub\EE4_project\main.c
-              ButtonCount   0x000062       data     extern D:\GitHub\EE4_project\main.c
-               FlagBlink1   0x000066       data     extern D:\GitHub\EE4_project\main.c
-               FlagBlink2   0x000067       data     extern D:\GitHub\EE4_project\main.c
-            counterBlink1   0x000068       data     extern D:\GitHub\EE4_project\main.c
-            counterBlink2   0x00006a       data     extern D:\GitHub\EE4_project\main.c
-                   LEDpos   0x00006c       data     extern D:\GitHub\EE4_project\main.c
-                 HRcount1   0x00006d       data     extern D:\GitHub\EE4_project\main.c
-                 HRcount2   0x000071       data     extern D:\GitHub\EE4_project\main.c
-             ScorePlayer1   0x000075       data     extern D:\GitHub\EE4_project\main.c
-             ScorePlayer2   0x000077       data     extern D:\GitHub\EE4_project\main.c
-         RealScorePlayer1   0x000079       data     extern D:\GitHub\EE4_project\main.c
-         RealScorePlayer2   0x00007b       data     extern D:\GitHub\EE4_project\main.c
-                Player1HR   0x00007d       data     extern D:\GitHub\EE4_project\main.c
-                Player2HR   0x00007f       data     extern D:\GitHub\EE4_project\main.c
-                 ADCState   0x000081       data     extern D:\GitHub\EE4_project\adc_process.c
-            analogInput_0   0x000082       data     extern D:\GitHub\EE4_project\adc_process.c
-            analogInput_1   0x000084       data     extern D:\GitHub\EE4_project\adc_process.c
-            analogInput_2   0x000086       data     extern D:\GitHub\EE4_project\adc_process.c
-            analogInput_3   0x000088       data     extern D:\GitHub\EE4_project\adc_process.c
-            analogInput_4   0x00008a       data     extern D:\GitHub\EE4_project\adc_process.c
-                     prom   0x00008c       data     static C:\MCC18\src\traditional\startup\c018i.c
-                curr_byte   0x00008f       data     static C:\MCC18\src\traditional\startup\c018i.c
-               curr_entry   0x000091       data     static C:\MCC18\src\traditional\startup\c018i.c
-                 data_ptr   0x000093       data     static C:\MCC18\src\traditional\startup\c018i.c
-                  stepper   0x000096       data     static D:\GitHub\EE4_project\stepper_process.c
-              PWM_counter   0x000098       data     extern D:\GitHub\EE4_project\pwm_process.c
-               PWM_Duty_1   0x000099       data     extern D:\GitHub\EE4_project\pwm_process.c
+                    flag1   0x000062       data     extern D:\GitHub\EE4_project\main.c
+                    flag2   0x000064       data     extern D:\GitHub\EE4_project\main.c
+              ButtonCount   0x000066       data     extern D:\GitHub\EE4_project\main.c
+                 HRcount1   0x00006a       data     extern D:\GitHub\EE4_project\main.c
+                 HRcount2   0x00006e       data     extern D:\GitHub\EE4_project\main.c
+             ScorePlayer1   0x000072       data     extern D:\GitHub\EE4_project\main.c
+             ScorePlayer2   0x000074       data     extern D:\GitHub\EE4_project\main.c
+         RealScorePlayer1   0x000076       data     extern D:\GitHub\EE4_project\main.c
+         RealScorePlayer2   0x000078       data     extern D:\GitHub\EE4_project\main.c
+                Player1HR   0x00007a       data     extern D:\GitHub\EE4_project\main.c
+                Player2HR   0x00007c       data     extern D:\GitHub\EE4_project\main.c
+                      P1a   0x00007e       data     extern D:\GitHub\EE4_project\main.c
+                      P2a   0x000080       data     extern D:\GitHub\EE4_project\main.c
+                      P1b   0x000082       data     extern D:\GitHub\EE4_project\main.c
+                      P2b   0x000084       data     extern D:\GitHub\EE4_project\main.c
+                      P1c   0x000086       data     extern D:\GitHub\EE4_project\main.c
+                      P2c   0x000088       data     extern D:\GitHub\EE4_project\main.c
+                   P1peak   0x00008a       data     extern D:\GitHub\EE4_project\main.c
+                   P2peak   0x00008b       data     extern D:\GitHub\EE4_project\main.c
+                  eegdiff   0x00008c       data     extern D:\GitHub\EE4_project\main.c
+              eegpointsP1   0x00008d       data     extern D:\GitHub\EE4_project\main.c
+              eegpointsP2   0x00008e       data     extern D:\GitHub\EE4_project\main.c
+               FlagBlink1   0x00008f       data     extern D:\GitHub\EE4_project\led.c
+               FlagBlink2   0x000090       data     extern D:\GitHub\EE4_project\led.c
+               FlagBlink3   0x000091       data     extern D:\GitHub\EE4_project\led.c
+               FlagBlink4   0x000092       data     extern D:\GitHub\EE4_project\led.c
+            counterBlink1   0x000093       data     extern D:\GitHub\EE4_project\led.c
+            counterBlink2   0x000095       data     extern D:\GitHub\EE4_project\led.c
+            counterBlink3   0x000097       data     extern D:\GitHub\EE4_project\led.c
+            counterBlink4   0x000099       data     extern D:\GitHub\EE4_project\led.c
+          SpeedUpCounter1   0x00009b       data     extern D:\GitHub\EE4_project\led.c
+           counterBlinkV1   0x00009d       data     extern D:\GitHub\EE4_project\led.c
+                   LEDpos   0x00009f       data     extern D:\GitHub\EE4_project\led.c
+                PreLEDpos   0x0000a0       data     extern D:\GitHub\EE4_project\led.c
+                   ledsUp   0x0000a1       data     extern D:\GitHub\EE4_project\led.c
+                 ledsDown   0x0000a2       data     extern D:\GitHub\EE4_project\led.c
+               counterAll   0x0000a3       data     extern D:\GitHub\EE4_project\led.c
+          speaker1Counter   0x0000a5       data     extern D:\GitHub\EE4_project\speaker.c
+                        i   0x0000a6       data     extern D:\GitHub\EE4_project\speaker.c
+                        m   0x0000a8       data     extern D:\GitHub\EE4_project\speaker.c
+          speaker2Counter   0x0000aa       data     extern D:\GitHub\EE4_project\speaker.c
+            Song2FCounter   0x0000ac       data     extern D:\GitHub\EE4_project\speaker.c
+           Song2FCounter2   0x0000ad       data     extern D:\GitHub\EE4_project\speaker.c
+           Song2FCounter3   0x0000ae       data     extern D:\GitHub\EE4_project\speaker.c
+           Song2FCounter4   0x0000af       data     extern D:\GitHub\EE4_project\speaker.c
+           Song2FCounter5   0x0000b0       data     extern D:\GitHub\EE4_project\speaker.c
+          speaker3Counter   0x0000b1       data     extern D:\GitHub\EE4_project\speaker.c
+           Song3FCounter1   0x0000b3       data     extern D:\GitHub\EE4_project\speaker.c
+           Song3FCounter2   0x0000b4       data     extern D:\GitHub\EE4_project\speaker.c
+           Song3FCounter3   0x0000b5       data     extern D:\GitHub\EE4_project\speaker.c
+           Song3FCounter4   0x0000b6       data     extern D:\GitHub\EE4_project\speaker.c
+           Song3FCounter5   0x0000b7       data     extern D:\GitHub\EE4_project\speaker.c
+           Song3FCounter7   0x0000b8       data     extern D:\GitHub\EE4_project\speaker.c
+           Song3FCounter8   0x0000b9       data     extern D:\GitHub\EE4_project\speaker.c
+                 ADCState   0x0000ba       data     extern D:\GitHub\EE4_project\adc_process.c
+            analogInput_0   0x0000bb       data     extern D:\GitHub\EE4_project\adc_process.c
+            analogInput_1   0x0000bd       data     extern D:\GitHub\EE4_project\adc_process.c
+            analogInput_2   0x0000bf       data     extern D:\GitHub\EE4_project\adc_process.c
+            analogInput_3   0x0000c1       data     extern D:\GitHub\EE4_project\adc_process.c
+            analogInput_4   0x0000c3       data     extern D:\GitHub\EE4_project\adc_process.c
+                     prom   0x0000c5       data     static C:\MCC18\src\traditional\startup\c018i.c
+                curr_byte   0x0000c8       data     static C:\MCC18\src\traditional\startup\c018i.c
+               curr_entry   0x0000ca       data     static C:\MCC18\src\traditional\startup\c018i.c
+                 data_ptr   0x0000cc       data     static C:\MCC18\src\traditional\startup\c018i.c
+                  stepper   0x0000cf       data     static D:\GitHub\EE4_project\stepper_process.c
+              PWM_counter   0x0000d1       data     extern D:\GitHub\EE4_project\pwm_process.c
+               PWM_Duty_1   0x0000d2       data     extern D:\GitHub\EE4_project\pwm_process.c
                     UFRML   0x000f66       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                 UFRMLbits   0x000f66       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                      UFRM   0x000f66       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                UFRMHbits   0x000f67       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     UFRMH   0x000f67       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                UFRMHbits   0x000f67       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                       UIR   0x000f68       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                   UIRbits   0x000f68       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                   UIEbits   0x000f69       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                       UIE   0x000f69       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                 UEIRbits   0x000f6a       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                      UEIR   0x000f6a       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                 UEIEbits   0x000f6b       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                 UEIRbits   0x000f6a       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                      UEIE   0x000f6b       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                USTATbits   0x000f6c       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                 UEIEbits   0x000f6b       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     USTAT   0x000f6c       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                USTATbits   0x000f6c       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                  UCONbits   0x000f6d       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                      UCON   0x000f6d       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                    UADDR   0x000f6e       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                 UADDRbits   0x000f6e       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                     UCFG   0x000f6f       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                    UADDR   0x000f6e       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                  UCFGbits   0x000f6f       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                     UCFG   0x000f6f       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                  UEP0bits   0x000f70       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                      UEP0   0x000f70       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                     UEP1   0x000f71       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                  UEP1bits   0x000f71       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                     UEP1   0x000f71       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                  UEP2bits   0x000f72       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                      UEP2   0x000f72       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                 UEP3bits   0x000f73       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                      UEP3   0x000f73       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                 UEP4bits   0x000f74       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                 UEP3bits   0x000f73       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                      UEP4   0x000f74       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                 UEP4bits   0x000f74       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                      UEP5   0x000f75       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                  UEP5bits   0x000f75       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                 UEP6bits   0x000f76       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                      UEP6   0x000f76       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                     UEP7   0x000f77       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                 UEP6bits   0x000f76       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                  UEP7bits   0x000f77       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                     UEP7   0x000f77       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                      UEP8   0x000f78       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                  UEP8bits   0x000f78       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                     UEP9   0x000f79       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                  UEP9bits   0x000f79       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                    UEP10   0x000f7a       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                     UEP9   0x000f79       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                 UEP10bits   0x000f7a       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                    UEP11   0x000f7b       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                    UEP10   0x000f7a       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                 UEP11bits   0x000f7b       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                    UEP11   0x000f7b       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                 UEP12bits   0x000f7c       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     UEP12   0x000f7c       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                UEP13bits   0x000f7d       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     UEP13   0x000f7d       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                UEP14bits   0x000f7e       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                UEP13bits   0x000f7d       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     UEP14   0x000f7e       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                UEP14bits   0x000f7e       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                 UEP15bits   0x000f7f       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     UEP15   0x000f7f       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                 PORTAbits   0x000f80       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
@@ -583,69 +754,69 @@ Linker Map File - Created Sat May 17 22:53:37 2014
                     PORTC   0x000f82       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                 PORTEbits   0x000f84       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     PORTE   0x000f84       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                 LATAbits   0x000f89       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                      LATA   0x000f89       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                 LATBbits   0x000f8a       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                 LATAbits   0x000f89       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                      LATB   0x000f8a       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                     LATC   0x000f8b       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                 LATBbits   0x000f8a       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                  LATCbits   0x000f8b       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                    TRISA   0x000f92       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                 DDRAbits   0x000f92       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                     LATC   0x000f8b       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                 TRISAbits   0x000f92       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                    TRISA   0x000f92       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                      DDRA   0x000f92       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                TRISBbits   0x000f93       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                 DDRAbits   0x000f92       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     TRISB   0x000f93       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                 DDRBbits   0x000f93       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                TRISBbits   0x000f93       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                      DDRB   0x000f93       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                TRISCbits   0x000f94       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                 DDRBbits   0x000f93       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     TRISC   0x000f94       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                 DDRCbits   0x000f94       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                TRISCbits   0x000f94       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                      DDRC   0x000f94       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                  OSCTUNE   0x000f9b       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                 DDRCbits   0x000f94       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
               OSCTUNEbits   0x000f9b       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                  OSCTUNE   0x000f9b       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                      PIE1   0x000f9d       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                  PIE1bits   0x000f9d       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                     PIR1   0x000f9e       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                  PIR1bits   0x000f9e       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                     PIR1   0x000f9e       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                  IPR1bits   0x000f9f       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                      IPR1   0x000f9f       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                 PIE2bits   0x000fa0       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                      PIE2   0x000fa0       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                 PIR2bits   0x000fa1       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                 PIE2bits   0x000fa0       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                      PIR2   0x000fa1       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                     IPR2   0x000fa2       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                 PIR2bits   0x000fa1       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                  IPR2bits   0x000fa2       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-               EECON1bits   0x000fa6       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                     IPR2   0x000fa2       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    EECON1   0x000fa6       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+               EECON1bits   0x000fa6       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    EECON2   0x000fa7       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    EEDATA   0x000fa8       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     EEADR   0x000fa9       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                RCSTAbits   0x000fab       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     RCSTA   0x000fab       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                    TXSTA   0x000fac       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                RCSTAbits   0x000fab       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                 TXSTAbits   0x000fac       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                    TXSTA   0x000fac       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     TXREG   0x000fad       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     RCREG   0x000fae       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     SPBRG   0x000faf       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    SPBRGH   0x000fb0       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                T3CONbits   0x000fb1       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     T3CON   0x000fb1       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                T3CONbits   0x000fb1       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     TMR3L   0x000fb2       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     TMR3H   0x000fb3       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                CMCONbits   0x000fb4       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     CMCON   0x000fb4       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                CMCONbits   0x000fb4       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                CVRCONbits   0x000fb5       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    CVRCON   0x000fb5       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-              ECCP1ASbits   0x000fb6       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                   ECCP1AS   0x000fb6       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                CCP1ASbits   0x000fb6       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    CCP1AS   0x000fb6       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-             ECCP1DELbits   0x000fb7       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                  CCP1DEL   0x000fb7       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+              ECCP1ASbits   0x000fb6       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
               CCP1DELbits   0x000fb7       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                  CCP1DEL   0x000fb7       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                  ECCP1DEL   0x000fb7       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                  BAUDCON   0x000fb8       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+             ECCP1DELbits   0x000fb7       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
               BAUDCONbits   0x000fb8       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                  BAUDCON   0x000fb8       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                   CCP2CON   0x000fba       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
               CCP2CONbits   0x000fba       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     CCPR2   0x000fbb       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
@@ -658,17 +829,17 @@ Linker Map File - Created Sat May 17 22:53:37 2014
                    CCPR1H   0x000fbf       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                ADCON2bits   0x000fc0       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    ADCON2   0x000fc0       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-               ADCON1bits   0x000fc1       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    ADCON1   0x000fc1       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+               ADCON1bits   0x000fc1       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                ADCON0bits   0x000fc2       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    ADCON0   0x000fc2       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     ADRES   0x000fc3       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    ADRESL   0x000fc3       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    ADRESH   0x000fc4       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                  SSPCON2   0x000fc5       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
               SSPCON2bits   0x000fc5       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                  SSPCON1   0x000fc6       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                  SSPCON2   0x000fc5       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
               SSPCON1bits   0x000fc6       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                  SSPCON1   0x000fc6       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                   SSPSTAT   0x000fc7       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
               SSPSTATbits   0x000fc7       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    SSPADD   0x000fc8       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
@@ -685,20 +856,20 @@ Linker Map File - Created Sat May 17 22:53:37 2014
                      RCON   0x000fd0       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                WDTCONbits   0x000fd1       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    WDTCON   0x000fd1       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-               LVDCONbits   0x000fd2       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                   LVDCON   0x000fd2       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                   HLVDCON   0x000fd2       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
               HLVDCONbits   0x000fd2       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+               LVDCONbits   0x000fd2       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                   LVDCON   0x000fd2       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                OSCCONbits   0x000fd3       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    OSCCON   0x000fd3       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                    T0CON   0x000fd5       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                 T0CONbits   0x000fd5       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                    T0CON   0x000fd5       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     TMR0L   0x000fd6       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     TMR0H   0x000fd7       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                STATUSbits   0x000fd8       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    STATUS   0x000fd8       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                     FSR2   0x000fd9       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     FSR2L   0x000fd9       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                     FSR2   0x000fd9       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     FSR2H   0x000fda       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    PLUSW2   0x000fdb       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                   PREINC2   0x000fdc       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
@@ -715,36 +886,36 @@ Linker Map File - Created Sat May 17 22:53:37 2014
                  POSTINC1   0x000fe6       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     INDF1   0x000fe7       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                      WREG   0x000fe8       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                     FSR0   0x000fe9       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     FSR0L   0x000fe9       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                     FSR0   0x000fe9       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     FSR0H   0x000fea       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    PLUSW0   0x000feb       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                   PREINC0   0x000fec       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                  POSTDEC0   0x000fed       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                  POSTINC0   0x000fee       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     INDF0   0x000fef       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-              INTCON3bits   0x000ff0       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                   INTCON3   0x000ff0       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+              INTCON3bits   0x000ff0       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                   INTCON2   0x000ff1       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
               INTCON2bits   0x000ff1       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-               INTCONbits   0x000ff2       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    INTCON   0x000ff2       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                     PROD   0x000ff3       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+               INTCONbits   0x000ff2       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     PRODL   0x000ff3       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                     PROD   0x000ff3       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                     PRODH   0x000ff4       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    TABLAT   0x000ff5       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                   TBLPTR   0x000ff6       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                   TBLPTRL   0x000ff6       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                   TBLPTR   0x000ff6       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                   TBLPTRH   0x000ff7       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                   TBLPTRU   0x000ff8       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                      PCL   0x000ff9       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                        PC   0x000ff9       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                      PCL   0x000ff9       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    PCLATH   0x000ffa       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    PCLATU   0x000ffb       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                    STKPTR   0x000ffc       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                STKPTRbits   0x000ffc       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
-                     TOSL   0x000ffd       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                       TOS   0x000ffd       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
+                     TOSL   0x000ffd       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                      TOSH   0x000ffe       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
                      TOSU   0x000fff       data     extern C:\MCC18\src\traditional\proc\p18F2550.asm
 
